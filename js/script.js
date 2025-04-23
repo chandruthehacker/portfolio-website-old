@@ -42,20 +42,59 @@ ScrollReveal({
 });
 
 ScrollReveal().reveal(".home-content, .heading", { origin: "top" });
-ScrollReveal().reveal(
-  ".home-image, .projects-container, .portfolio-box, .contact form",
-  { origin: "bottom" }
-);
+ScrollReveal().reveal(".home-image, .contact form", {
+  origin: "bottom",
+});
 ScrollReveal().reveal(".home-content h1, .about-image", { origin: "left" });
 ScrollReveal().reveal(".home-content p, .about-content", { origin: "right" });
 
 const typed = new Typed(".multiple-text", {
   strings: [
     "CS Student",
-    "Aspiring Security Analyst", "Cybersecurity Enthusiast",
+    "Aspiring Security Analyst",
+    "Cybersecurity Enthusiast",
   ],
   typeSpeed: 100,
   backSpeed: 100,
   backDelay: 1000,
   loop: true,
+});
+
+//max 750 px shows 3 projects
+const showMoreBtn = document.getElementById("showMoreBtn");
+let hiddenBoxes = document.querySelectorAll(".hidden-box");
+let currentIndex = 0;
+const itemsPerClick = 3;
+
+showMoreBtn.addEventListener("click", () => {
+  for (let i = currentIndex; i < currentIndex + itemsPerClick; i++) {
+    if (hiddenBoxes[i]) {
+      hiddenBoxes[i].style.display = "flex";
+    }
+  }
+  currentIndex += itemsPerClick;
+
+  if (currentIndex >= hiddenBoxes.length) {
+    showMoreBtn.style.display = "none";
+  }
+});
+
+//landscape shows 4 projecta
+
+const showMoreListBtn = document.getElementById("showMoreListBtn");
+let hiddenBoxesList = document.querySelectorAll(".projects-list");
+let current = 0;
+const items = 4;
+
+showMoreListBtn.addEventListener("click", () => {
+  for (let i = current; i < current + items; i++) {
+    if (hiddenBoxesList[i]) {
+      hiddenBoxesList[i].style.display = "flex";
+    }
+  }
+  current += items;
+
+  if (current >= hiddenBoxesList.length) {
+    showMoreListBtn.style.display = "none";
+  }
 });

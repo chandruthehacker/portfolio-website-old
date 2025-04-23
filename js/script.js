@@ -52,7 +52,7 @@ ScrollReveal().reveal(".home-content p, .about-content", { origin: "right" });
 const typed = new Typed(".multiple-text", {
   strings: [
     "CS Student",
-    "Aspiring Security Analyst, Cybersecurity Enthusiast",
+    "Aspiring Security Analyst", "Cybersecurity Enthusiast",
   ],
   typeSpeed: 100,
   backSpeed: 100,

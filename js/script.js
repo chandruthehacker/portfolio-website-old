@@ -51,28 +51,43 @@ navLinks.forEach((link) => {
   });
 });
 
-
 // scroll reveal contents
-ScrollReveal().reveal(".home-content, .heading", { origin: "top" });
-ScrollReveal().reveal(".home-image, .contact form", {
-  origin: "bottom",
-});
-ScrollReveal().reveal(".home-content h1, .about-image", { origin: "left" });
-ScrollReveal().reveal(
-  ".home-content .passion,.home-content p, .about-content",
-  { origin: "right" }
-);
+document.addEventListener("DOMContentLoaded", () => {
+  ScrollReveal().reveal(".home-content, .heading", {
+    origin: "top",
+    distance: "50px",
+    duration: 1000,
+  });
+  ScrollReveal().reveal(".home-image, .contact form", {
+    origin: "bottom",
+    distance: "50px",
+    duration: 1000,
+  });
+  ScrollReveal().reveal(".home-content h1, .about-image", {
+    origin: "left",
+    distance: "50px",
+    duration: 1000,
+  });
+  ScrollReveal().reveal(
+    ".home-content .passion,.home-content p, .about-content",
+    {
+      origin: "right",
+      distance: "50px",
+      duration: 1000,
+    }
+  );
 
-const typed = new Typed(".multiple-text", {
-  strings: [
-    "CS Student",
-    "Aspiring Security Analyst",
-    "Cybersecurity Enthusiast",
-  ],
-  typeSpeed: 100,
-  backSpeed: 100,
-  backDelay: 1000,
-  loop: true,
+  const typed = new Typed(".multiple-text", {
+    strings: [
+      "CS Student",
+      "Aspiring Security Analyst",
+      "Cybersecurity Enthusiast",
+    ],
+    typeSpeed: 100,
+    backSpeed: 100,
+    backDelay: 1000,
+    loop: true,
+  });
 });
 
 //max 750 px shows 3 projects

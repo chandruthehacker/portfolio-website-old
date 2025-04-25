@@ -63,6 +63,7 @@ section{
     cursor: default;
 }
 
+
 .navbar a{
     font-size: 1.7rem;
     color: var(--text-color);
@@ -97,6 +98,10 @@ section{
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
+    padding-left: 3%;
+}
+.home img{
+    margin-left: 3%;
 }
 .home-content h3{
     font-size: 3.2rem;
@@ -570,11 +575,9 @@ span{
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
-        padding-left: 3%;
+        align-items: center;
     }
-    .home img{
-    margin-left: 3%;
-    }
+
 
     .home-image img{
         width: 60vw;
@@ -641,42 +644,48 @@ span{
         max-width: 400px;
         min-width:270px;
     }
-    #menu-icon{
+    #menu-icon {
         display: block;
+        cursor: pointer;
+        z-index: 1001;
     }
-    .navbar{
-        max-width: 30rem;
-        transition: .5s ease-in-out;
+    .navbar {
         position: absolute;
-        top: 80%;
+        top: 100%; /* Below the header */
         right: 8%;
         width: 50%;
         padding: 2rem;
         background: var(--bg-color);
-        box-shadow: 0 0 .8rem rgb(22, 205, 255);
+        box-shadow: 0 0 0.8rem rgb(22, 205, 255);
         border-radius: 2rem;
         opacity: 0;
         visibility: hidden;
         transform: translateY(-20px);
-        transition: visibility 0s, opacity 0.4s ease-in-out, transform 0.3s ease-in-out;
- 
-    }
+        display: block;
+        pointer-events: none;
+        transition:
+            visibility 0s linear 0.5s,
+            opacity 0.5s ease-in-out,
+            transform 0.5s ease-in-out;
+      }
 
-    .navbar.active{
+    .navbar.active {
         opacity: 1;
         visibility: visible;
         transform: translateY(0);
-        display: block;
-    }
-    .navbar a{
+        pointer-events: auto;
+        transition:
+          visibility 0s,
+          opacity 0.5s ease-in-out,
+          transform 0.5s ease-in-out;
+      }
+    
+      .navbar a {
         display: block;
         font-size: 2rem;
-        margin: 3rem 0;
+        margin: 2.5rem;
         text-align: center;
-        margin-left: 2rem;
-        margin-right: 2rem;
-
-    }
+      }
 
     .home{
         flex-direction: column;

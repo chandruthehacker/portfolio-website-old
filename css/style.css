@@ -649,11 +649,14 @@ span{
         cursor: pointer;
         z-index: 1001;
     }
+    
+
     .navbar {
         position: absolute;
-        top: 100%; /* Below the header */
+        top: 80%;
         right: 8%;
-        width: 50%;
+        width: 70%;
+        max-width: 300px;
         padding: 2rem;
         background: var(--bg-color);
         box-shadow: 0 0 0.8rem rgb(22, 205, 255);
@@ -686,6 +689,7 @@ span{
         margin: 2.5rem;
         text-align: center;
       }
+
 
     .home{
         flex-direction: column;

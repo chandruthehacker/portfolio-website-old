@@ -4,7 +4,30 @@ let navbar = document.querySelector(".navbar");
 menuIcon.onclick = () => {
   menuIcon.classList.toggle("bx-x");
   navbar.classList.toggle("active");
+
+  if (navbar.classList.contains("active")) {
+    navbar.style.visibility = "visible";
+    navbar.style.display = "block";
+  } else {
+    setTimeout(() => {
+      navbar.style.visibility = "hidden";
+      navbar.style.display = "none";
+    }, 500);
+  }
 };
+
+document.addEventListener("click", (event) => {
+  const isClickInsideMenu =
+    navbar.contains(event.target) || menuIcon.contains(event.target);
+  if (navbar.classList.contains("active") && !isClickInsideMenu) {
+    menuIcon.classList.remove("bx-x");
+    navbar.classList.remove("active");
+    setTimeout(() => {
+      navbar.style.visibility = "hidden";
+      navbar.style.display = "none";
+    }, 500);
+  }
+});
 
 let sections = document.querySelectorAll("section");
 let navLinks = document.querySelectorAll("header nav a");
@@ -46,7 +69,10 @@ ScrollReveal().reveal(".home-image, .contact form", {
   origin: "bottom",
 });
 ScrollReveal().reveal(".home-content h1, .about-image", { origin: "left" });
-ScrollReveal().reveal(".home-content p, .about-content", { origin: "right" });
+ScrollReveal().reveal(
+  ".home-content .passion,.home-content p, .about-content",
+  { origin: "right" }
+);
 
 const typed = new Typed(".multiple-text", {
   strings: [

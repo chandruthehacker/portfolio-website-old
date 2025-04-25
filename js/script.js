@@ -124,3 +124,41 @@ showMoreListBtn.addEventListener("click", () => {
     showMoreListBtn.style.display = "none";
   }
 });
+
+//contact section
+
+const form = document.querySelector("form");
+const statusText = document.getElementById("form-status");
+
+form.addEventListener("submit", function (e) {
+  const email = form.querySelector('input[name="email"]').value;
+  const name = form.querySelector('input[name="name"]').value;
+  const message = form.querySelector('textarea[name="message"]').value;
+
+  // Simple email validation
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if (!email || !name || !message) {
+    e.preventDefault();
+    statusText.innerText = "Please fill in all required fields.";
+    statusText.style.color = "red";
+    statusText.style.display = "block";
+    return;
+  }
+
+  if (!emailRegex.test(email)) {
+    e.preventDefault();
+    statusText.innerText = "Please enter a valid email address.";
+    statusText.style.color = "red";
+    statusText.style.display = "block";
+    return;
+  }
+
+  // Show success message after a short delay
+  setTimeout(() => {
+    statusText.innerText = "Message sent successfully!";
+    statusText.style.color = "var(--main-color)";
+    statusText.style.display = "block";
+    form.reset();
+  }, 300);
+});

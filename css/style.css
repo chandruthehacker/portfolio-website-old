@@ -570,6 +570,7 @@ span{
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
+        padding-left: 3%;
     }
 
     .home-image img{

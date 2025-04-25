@@ -572,6 +572,9 @@ span{
         justify-content: space-evenly;
         padding-left: 3%;
     }
+    .home img{
+    margin-left: 3%;
+    }
 
     .home-image img{
         width: 60vw;

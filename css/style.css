@@ -34,8 +34,9 @@ section{
     padding: 0;
     margin: 0;
     min-height: 100vh;
-    padding: 10rem 9% 2rem;
+    padding: 11rem 9% 2rem;
 }
+
 
 .header{
     position: fixed;
@@ -68,11 +69,22 @@ section{
     margin-left: 4rem;
     transition: .3s;
 }
-
-.navbar a:hover,
-.navbar a.active{
+.navbar a:hover{
     color: var(--main-color);
 }
+
+.navbar a.active{
+    color:#0ef;
+    border: none;
+    border-radius: 1.5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    box-shadow: 0 0 1rem var(--main-color);
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+
 
 #menu-icon{
     font-size: 3.6rem;
@@ -123,6 +135,12 @@ section{
 span{
     color: var(--main-color);
 }
+.social-media{
+    display: flex;
+    justify-content: space-evenly;
+    max-width: 30rem;
+    justify-content: space-between;
+}
 
 .social-media a{
     display: inline-flex;
@@ -164,6 +182,44 @@ span{
 }
 
 
+
+
+.scroll-down {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 50;
+    animation: bounce 2s infinite;
+  }
+  
+  .scroll-down a {
+    font-size: 3rem;
+    color: var(--main-color);
+    transition: 0.3s;
+  }
+  .scroll-down a i{
+    color: var(--main-color);
+  }
+  
+  .scroll-down a:hover {
+    color: var(--text-color);
+  }
+  
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateX(-50%) translateY(0);
+    }
+    40% {
+      transform: translateX(-50%) translateY(-10px);
+    }
+    60% {
+      transform: translateX(-50%) translateY(-5px);
+    }
+  }
+  
+
+
 .about{
     display: flex;
     justify-content: center;
@@ -173,7 +229,7 @@ span{
 }
 
 .about-image img{
-    width: 20vw;
+    width: 30vw;
 }
 
 .heading{
@@ -196,6 +252,9 @@ span{
     margin: 2rem 0 3rem;
 }
 
+#skills{
+    gap: 0;
+}
 
 .skills h2{
     margin-bottom: 5rem;
@@ -207,9 +266,12 @@ span{
     align-items: center;
     flex-wrap: wrap;
     gap: 2rem;
+    margin-bottom: 4rem;
 }
 
 .skills-container .skill-box{
+    max-width: 400px;
+    min-width:350px;
     flex: 1 1 30rem;
     background: var(--second-bg-color);
     padding: 3rem 2rem 4rem;
@@ -240,8 +302,6 @@ span{
 
 .projects{
     background: var(--second-bg-color);
-    padding: 7rem 9% 2rem;
-    min-height: auto;
     overflow: visible; 
     text-align: center;
 }
@@ -260,6 +320,7 @@ span{
 }
 
 .projects-container{
+    padding: 7rem 9% 2rem;
     display: grid;
     grid-template-columns: repeat(3,1fr);
     align-items: center;
@@ -338,7 +399,9 @@ span{
 }
 
 
-
+.certificates{
+    max-height: auto;
+}
 
 .certificates h2{
     margin-bottom: 7rem;
@@ -349,10 +412,11 @@ span{
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 3rem;
+    gap: 5rem;
 }
 
 .certificates-container .certificate-box{
+    max-width: 400px;
     flex: 1 1 30rem;
     background: var(--second-bg-color);
     padding: 3rem 2rem 4rem;
@@ -395,6 +459,8 @@ span{
 .contact
 {
     background: var(--second-bg-color);
+    padding-left: 4rem;
+    padding-right: 4rem;
 }
 .contact h2{
     margin-bottom: 3rem;
@@ -404,7 +470,7 @@ span{
     max-width: 70rem;
     margin: 1rem auto;
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 5rem;
 
 }
 
@@ -471,6 +537,67 @@ span{
 }
 
 
+
+@media (orientation: portrait) and (max-height: 725px) {
+    .about{
+        gap: 0rem;
+    }
+    .about-image img {
+      width: 60vw;
+    }
+  }
+
+  @media (orientation: portrait) and (max-height: 680px) {
+    .about-image img {
+      width: 47vw;
+    }
+  }
+
+  @media (orientation: portrait) and (max-height: 600px) {
+    .about-image img {
+      width: 35vw;
+    }
+  }
+
+  @media (orientation: portrait){
+
+    .social-media{
+        display: block;
+        justify-content: none;
+        max-width: auto;
+    }
+    .home{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+
+    .home-image img{
+        width: 60vw;
+    }
+    .about{
+        gap: 0rem;
+        justify-content: space-evenly;
+        flex-direction: column-reverse;
+    }
+
+    .about-image img{
+        width: 70vw;
+    }
+
+    .contact{
+        min-height: auto;
+    }
+    .certificates-container{
+        margin-bottom: 5rem;
+    }
+    .skills{
+        align-content: center;       
+    }
+    .skills h2{
+        margin-bottom: 3rem;
+    }
+}
 @media (max-width: 1260px){
     html{
         font-size: 55%;
@@ -482,15 +609,14 @@ span{
         padding: 3rem 3% ;
     }
 
-    section{
-        padding: 10rem 3% 2rem;
-    }
 
     .skills{
-        padding: 6rem;
+        padding-left: 4rem;
+        padding-right: 4rem;
     }
     .certificates{
-        padding: 7rem;
+        padding-left: 4rem;
+        padding-right: 4rem;
     }
 
     .footer{
@@ -507,28 +633,45 @@ span{
 }
 
 @media (max-width: 950px){
+    .skills-container .skill-box{
+        max-width: 400px;
+        min-width:270px;
+    }
     #menu-icon{
         display: block;
     }
     .navbar{
+        max-width: 30rem;
+        transition: .5s ease-in-out;
         position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        padding: 1rem 3%;
+        top: 80%;
+        right: 8%;
+        width: 50%;
+        padding: 2rem;
         background: var(--bg-color);
-        border: .1rem solid rgba(0,0,0,.2);
-        box-shadow: 0 .5rem 1rem rgba(0,0,0,.2);
-        display: none;
+        box-shadow: 0 0 .8rem rgb(22, 205, 255);
+        border-radius: 2rem;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-20px);
+        transition: visibility 0s, opacity 0.4s ease-in-out, transform 0.3s ease-in-out;
+ 
     }
 
     .navbar.active{
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
         display: block;
     }
     .navbar a{
         display: block;
         font-size: 2rem;
         margin: 3rem 0;
+        text-align: center;
+        margin-left: 2rem;
+        margin-right: 2rem;
+
     }
 
     .home{
@@ -553,19 +696,17 @@ span{
     .about{
         flex-direction: column-reverse;
     }
-    .about img{
-        width: 50vw;
-        padding: 0;
-        margin: 0;
+
+    .about-image img{
+        width: 60vw;
     }
 
     .certificates h2{
-        margin-bottom: 3rem;
-
+        margin-bottom: 5rem;
     }
 
     .projects h2{
-        margin-bottom: 3rem;
+        margin-bottom: 5rem;
     }
 
     .projects-container{
@@ -585,6 +726,13 @@ span{
 
 
 @media (max-width: 750px){
+
+    .home-content h3{
+        font-size: 2.2rem;
+    }
+    .home-content h1{
+        font-size: 3.5rem;
+    }
     .projects-container{
         grid-template-columns: repeat(1,1fr);
     }

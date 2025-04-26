@@ -280,9 +280,9 @@ span{
     border-radius: 1.8rem;
     margin: 1.5rem;
     text-align: left;
-    border: none;
     transition: transform 0.3s, background-color 0.3s;
     color: #fff;
+    border: none;
 }
 
 

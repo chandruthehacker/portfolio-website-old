@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # portfolio
 this is my portfolio
 =======
@@ -91,4 +91,4 @@ I believe in the power of continuous learning, open source, and community buildi
 
 I’m always open to collaborate, contribute to open-source, or just chat about cybersecurity and tech. Don’t hesitate to reach out. Let's make the digital world a safer place together 🔐
 
->>>>>>> 44c11eb4e2c6e7837eb4bf7f31c77f16fb073e48
+

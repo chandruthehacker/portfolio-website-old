@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-# portfolio
-this is my portfolio
-=======
 # 🚀 Chandraprakash C | Cybersecurity Enthusiast
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?logo=linkedin)](https://www.linkedin.com/in/chandraprakash87/)
@@ -21,6 +17,7 @@ I believe in the power of continuous learning, open source, and community buildi
 ## 🧠 What I Know
 
 ### 🛡️ Cybersecurity Skills
+
 - Network Security
 - Penetration Testing
 - Log Analysis
@@ -30,15 +27,18 @@ I believe in the power of continuous learning, open source, and community buildi
 - Packet Analysis (Wireshark)
 
 ### 💻 Programming & Scripting
+
 - Python (Scripting, Automation)
 - Bash
 - SQL (Log querying, Data extraction)
 
 ### 🐧 Operating Systems
+
 - Linux (Kali, Ubuntu, Debian)
 - Windows (Basic AD & Security configs)
 
 ### 🧰 Tools & Platforms
+
 - Wireshark, Nmap, Nessus, Metasploit
 - Burp Suite, John the Ripper, Hydra
 - Git & GitHub
@@ -49,21 +49,21 @@ I believe in the power of continuous learning, open source, and community buildi
 
 ## 📜 Certifications
 
-- 🟢 **Google Cybersecurity Professional Certificate** *(Ongoing)*
-- 🟡 IBM Cybersecurity Analyst *(Planned)*
-- 📘 CEH (Certified Ethical Hacker) *(Future Goal)*
+- 🟢 **Google Cybersecurity Professional Certificate** _(Ongoing)_
+- 🟡 IBM Cybersecurity Analyst _(Planned)_
+- 📘 CEH (Certified Ethical Hacker) _(Future Goal)_
 
 ---
 
 ## 🔭 Projects
 
-| Project Name | Description | Tools/Skills Used |
-|--------------|-------------|-------------------|
-| **PacketSniffer** | A custom Python-based network sniffer to capture and analyze packets | Python, Scapy, Wireshark |
-| **SQL Log Analyzer** | Extracts and analyzes SQL logs for suspicious behavior | SQL, Python |
-| **Nmap Auto Scanner** | A Python script that automates Nmap scans and formats the results | Nmap, Python |
-| **Linux Security Toolkit** | Bash scripts for common Linux hardening tasks | Bash, Linux |
-| **Phishing Simulation** | Simulated phishing email system for awareness | Social Engineering, HTML, SMTP |
+| Project Name               | Description                                                          | Tools/Skills Used              |
+| -------------------------- | -------------------------------------------------------------------- | ------------------------------ |
+| **PacketSniffer**          | A custom Python-based network sniffer to capture and analyze packets | Python, Scapy, Wireshark       |
+| **SQL Log Analyzer**       | Extracts and analyzes SQL logs for suspicious behavior               | SQL, Python                    |
+| **Nmap Auto Scanner**      | A Python script that automates Nmap scans and formats the results    | Nmap, Python                   |
+| **Linux Security Toolkit** | Bash scripts for common Linux hardening tasks                        | Bash, Linux                    |
+| **Phishing Simulation**    | Simulated phishing email system for awareness                        | Social Engineering, HTML, SMTP |
 
 > 💡 Visit my GitHub repos to explore each project in depth!
 
@@ -90,5 +90,3 @@ I believe in the power of continuous learning, open source, and community buildi
 ## 📢 Let's Connect
 
 I’m always open to collaborate, contribute to open-source, or just chat about cybersecurity and tech. Don’t hesitate to reach out. Let's make the digital world a safer place together 🔐
-
->>>>>>> 44c11eb4e2c6e7837eb4bf7f31c77f16fb073e48

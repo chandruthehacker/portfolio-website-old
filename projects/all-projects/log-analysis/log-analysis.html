@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Log Analysis Project</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/script.js" defer></script>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>🔍 Log Analysis Project</h1>
+      <p class="subtitle">
+        Real-Time Detection of Brute Force Attacks in Linux Systems
+      </p>
+    </header>
+
+    <div class="content">
+      <div class="buttons">
+        <button onclick="history.back()">
+          <i class="bx bx-arrow-back"></i>Back
+        </button>
+        <a href="#" target="_blank"
+          >Read on Medium <i class="bx bx-link-external"></i
+        ></a>
+        <a href="#" target="_blank"
+          >View All Projects <i class="bx bx-link-external"></i
+        ></a>
+      </div>
+
+      <h2 class="side-heading">🔍 Project Overview</h2>
+      <div class="overview">
+        <p>
+          This project showcases a lightweight Python-based tool for analyzing
+          Linux system logs to detect brute force attacks, unauthorized access
+          attempts, and other suspicious login patterns.
+        </p>
+        <p>
+          Using regular expressions and CLI automation, the tool parses files
+          like <code>/var/log/auth.log</code> to extract security events and
+          flag anomalies. It offers both real-time monitoring and post-incident
+          analysis — essential for proactive threat detection.
+        </p>
+      </div>
+
+      <h2 class="side-heading">🧰 Tools & Technologies</h2>
+      <ul class="tools">
+        <li><strong>Languages:</strong> Python, Bash</li>
+        <li><strong>Tools:</strong> Wireshark, Splunk, Nmap</li>
+        <li><strong>Platforms:</strong> Linux (Ubuntu), VirtualBox</li>
+      </ul>
+
+      <h2 class="side-heading">✨ Key Features</h2>
+      <ul class="key-features">
+        <li>Parses Linux system logs in real time</li>
+        <li>Identifies brute force login attempts and anomalies</li>
+        <li>Generates alerts for suspicious IPs</li>
+        <li>Fast and lightweight CLI interface — no GUI overhead</li>
+      </ul>
+
+      <h2 class="side-heading">💻 Source Code</h2>
+      <div class="source-code">
+        <a
+          href="https://github.com/chandruthehacker?tab=packages"
+          target="_blank"
+        >
+          <span class="github-link">github.com/chandruthehacker</span>
+          <i class="bx bx-link-external"></i>
+        </a>
+      </div>
+
+      <h2 class="side-heading">⚙️ How It Works</h2>
+      <div class="how-it-works">
+        <h4>
+          <strong>Note:</strong> This tool operates passively — it does not
+          initiate active scans or generate network noise.
+        </h4>
+
+        <h3>1. Fetch Public IP Address</h3>
+        <p>
+          The script retrieves your current public IP to track external access
+          patterns and detect anomalies in incoming requests.
+        </p>
+
+        <h3>2. Parse Log Files</h3>
+        <p>
+          It reads log files such as <code>/var/log/auth.log</code> and uses
+          regex to isolate failed login attempts, timestamp patterns, and IP
+          addresses.
+        </p>
+
+        <h3>3. Flag Suspicious Activity</h3>
+        <p>
+          Based on frequency, location, and timing, it flags repeated failures
+          or logins from unknown sources as potential brute force attacks.
+        </p>
+      </div>
+
+      <h2 class="side-heading">🚀 How to Use</h2>
+      <div class="how-to-use">
+        <h3>Step 1: Clone the Repository</h3>
+        <p>
+          Run <code>git clone</code> to download the project files to your
+          system.
+        </p>
+
+        <h3>Step 2: Give Permissions</h3>
+        <p>
+          Make the script executable using <code>chmod +x log_parser.py</code>.
+        </p>
+
+        <h3>Step 3: Run the Tool</h3>
+        <p>
+          Execute the script from your terminal and point it to your desired log
+          file.
+        </p>
+      </div>
+
+      <h2 class="side-heading">📽️ Demo Video</h2>
+      <div class="demo-video">
+        <video
+          id="video"
+          preload="none"
+          poster="assets/images/universe.png"
+          controls
+        >
+          <source
+            src="assets/videos/1851190-uhd_3840_2160_25fps.mp4"
+            type="video/mp4"
+          />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+  </body>
+</html>

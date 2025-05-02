@@ -1,50 +1,45 @@
-<<<<<<< HEAD
-let menuIcon = document.querySelector("#menu-icon");
-let navbar = document.querySelector(".navbar");
+// =================== Navigation Toggle ===================
+const menuIcon = document.querySelector("#menu-icon");
+const navbar = document.querySelector(".navbar");
 
 menuIcon.onclick = () => {
   menuIcon.classList.toggle("bx-x");
   navbar.classList.toggle("active");
 };
 
-document.addEventListener("click", (event) => {
-  const isClickInsideMenu =
-    navbar.contains(event.target) || menuIcon.contains(event.target);
-
-  if (navbar.classList.contains("active") && !isClickInsideMenu) {
+// Close navbar when clicking outside
+document.addEventListener("click", (e) => {
+  if (!navbar.contains(e.target) && !menuIcon.contains(e.target)) {
     menuIcon.classList.remove("bx-x");
     navbar.classList.remove("active");
   }
 });
 
-// Scroll behavior
-let sections = document.querySelectorAll("section");
-let navLinks = document.querySelectorAll("header nav a");
+// =================== Scroll Behavior ===================
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll("header nav a");
 
 window.onscroll = () => {
-  let header = document.querySelector("header");
-  header.classList.toggle("sticky", window.scrollY > 100);
+  document.querySelector("header").classList.toggle("sticky", window.scrollY > 100);
 
   sections.forEach((sec) => {
-    let top = window.scrollY;
-    let offset = sec.offsetTop - 150;
-    let height = sec.offsetHeight;
-    let id = sec.getAttribute("id");
+    const top = window.scrollY;
+    const offset = sec.offsetTop - 150;
+    const height = sec.offsetHeight;
+    const id = sec.getAttribute("id");
 
     if (top >= offset && top < offset + height) {
       navLinks.forEach((link) => link.classList.remove("active"));
-      document
-        .querySelector("header nav a[href*=" + id + "]")
-        .classList.add("active");
+      document.querySelector(`header nav a[href*="${id}"]`)?.classList.add("active");
     }
   });
 
-  // close navbar on scroll
+  // Close navbar on scroll
   menuIcon.classList.remove("bx-x");
   navbar.classList.remove("active");
 };
 
-// smooth close on link click
+// Close navbar when a link is clicked
 navLinks.forEach((link) => {
   link.addEventListener("click", () => {
     menuIcon.classList.remove("bx-x");
@@ -52,363 +47,102 @@ navLinks.forEach((link) => {
   });
 });
 
-// scroll reveal contents
+// =================== ScrollReveal Animations ===================
 document.addEventListener("DOMContentLoaded", () => {
-  ScrollReveal().reveal(".home-content, .heading", {
-    origin: "top",
+  ScrollReveal().reveal(".home-content, .heading", { origin: "top", distance: "50px", duration: 1000 });
+  ScrollReveal().reveal(".home-image, .contact form", { origin: "bottom", distance: "50px", duration: 1000 });
+  ScrollReveal().reveal(".home-content h1, .about-image", { origin: "left", distance: "50px", duration: 1000 });
+  ScrollReveal().reveal(".home-content .passion, .home-content p, .about-content", {
+    origin: "right",
     distance: "50px",
     duration: 1000,
   });
-  ScrollReveal().reveal(".home-image, .contact form", {
-    origin: "bottom",
-    distance: "50px",
-    duration: 1000,
-  });
-  ScrollReveal().reveal(".home-content h1, .about-image", {
-    origin: "left",
-    distance: "50px",
-    duration: 1000,
-  });
-  ScrollReveal().reveal(
-    ".home-content .passion,.home-content p, .about-content",
-    {
-      origin: "right",
-      distance: "50px",
-      duration: 1000,
-    }
-  );
 
-  const typed = new Typed(".multiple-text", {
-    strings: [
-      "CS Student",
-      "Aspiring Security Analyst",
-      "Cybersecurity Enthusiast",
-    ],
+  new Typed(".multiple-text", {
+    strings: ["CS Student", "Aspiring Security Analyst", "Cybersecurity Enthusiast"],
     typeSpeed: 100,
     backSpeed: 100,
     backDelay: 1000,
     loop: true,
   });
 
-  //show more button display in projects
-
-  const container = document.querySelector(".projects-container");
-  const projectBoxes = container.querySelectorAll(".project-box");
-  const lapShowMore = document.querySelector("#lap-show-more");
-  const mobShowMore = document.querySelector("#mob-show-more");
-
-  // Check if all project boxes are already visible or there are no hidden ones
-  if (projectBoxes.length == 0 || areAllBoxesVisible(projectBoxes)) {
-    lapShowMore.style.display = "none";
-    mobShowMore.style.display = "none";
-  }
-  function areAllBoxesVisible(boxes) {
-    return Array.from(boxes).every((box) => box.offsetParent !== null);
-  }
-
-  // certificate show more button display
-  const certContainer = document.querySelector(".certificates-container");
-  const certBoxes = certContainer.querySelectorAll(".certificate-box");
-  const lapShowMoreCert = document.querySelector("#lap-show-more-cert");
-  const mobShowMoreCert = document.querySelector("#mob-show-more-cert");
-
-  // Check if all project boxes are already visible or there are no hidden ones
-  if (certBoxes.length === 0 || areAllBoxesVisible(certBoxes)) {
-    lapShowMoreCert.style.display = "none";
-    mobShowMoreCert.style.display = "none";
-  }
-  function areAllBoxesVisible(boxes) {
-    return Array.from(boxes).every((box) => box.offsetParent !== null);
-  }
+  // Hide "Show More" buttons if all items are visible
+  checkVisibility(".projects-container", ".project-box", "#lap-show-more", "#mob-show-more");
+  checkVisibility(".certificates-container", ".certificate-box", "#lap-show-more-cert", "#mob-show-more-cert");
 });
 
-//
-//Mobile show more max 750 px shows 3 projects
-const mobShowMore = document.getElementById("mob-show-more");
-let mobHidden = document.querySelectorAll(".mob-hidden");
-let currentIndex = 0;
-const itemsPerClick = 3;
+function checkVisibility(containerSelector, itemSelector, lapBtnId, mobBtnId) {
+  const container = document.querySelector(containerSelector);
+  const items = container?.querySelectorAll(itemSelector);
+  const lapBtn = document.querySelector(lapBtnId);
+  const mobBtn = document.querySelector(mobBtnId);
 
-mobShowMore.addEventListener("click", () => {
-  for (let i = currentIndex; i < currentIndex + itemsPerClick; i++) {
-    if (mobHidden[i]) {
-      mobHidden[i].style.display = "block";
+  if (!items || items.length === 0 || Array.from(items).every((box) => box.offsetParent !== null)) {
+    lapBtn && (lapBtn.style.display = "none");
+    mobBtn && (mobBtn.style.display = "none");
+  }
+}
+
+// =================== Show More Buttons ===================
+// Mobile Projects
+setupShowMore("#mob-show-more", ".mob-hidden", 3);
+// Laptop Projects
+setupShowMore("#lap-show-more", ".lap-hidden", 4);
+// Mobile Certificates
+setupShowMore("#mob-show-more-cert", ".mob-hidden-cert", 3);
+// Laptop Certificates
+setupShowMore("#lap-show-more-cert", ".lap-hidden-cert", 4);
+
+function setupShowMore(buttonId, itemsSelector, countPerClick) {
+  const button = document.querySelector(buttonId);
+  const items = document.querySelectorAll(itemsSelector);
+  let currentIndex = 0;
+
+  if (!button) return;
+
+  button.addEventListener("click", () => {
+    for (let i = currentIndex; i < currentIndex + countPerClick; i++) {
+      if (items[i]) items[i].style.display = "block";
     }
-  }
-  currentIndex += itemsPerClick;
 
-  if (currentIndex >= mobHidden.length) {
-    mobShowMore.style.display = "none";
-  }
-});
+    currentIndex += countPerClick;
+    if (currentIndex >= items.length) button.style.display = "none";
+  });
+}
 
-//Lap show more button landscape shows 4 projects
-
-const lapShowMore = document.getElementById("lap-show-more");
-let lapHidden = document.querySelectorAll(".lap-hidden");
-let current = 0;
-const items = 4;
-
-lapShowMore.addEventListener("click", () => {
-  for (let i = current; i < current + items; i++) {
-    if (lapHidden[i]) {
-      lapHidden[i].style.display = "block";
-    }
-  }
-  current += items;
-
-  if (current >= lapHidden.length) {
-    lapShowMore.style.display = "none";
-  }
-});
-
-//Mobile show more max 750 px shows 3 certificates
-const mobShowMoreCert = document.getElementById("mob-show-more-cert");
-let mobHiddenCert = document.querySelectorAll(".mob-hidden-cert");
-let currentIndexCert = 0;
-const itemsPerClickCert = 3;
-
-mobShowMoreCert.addEventListener("click", () => {
-  for (
-    let i = currentIndexCert;
-    i < currentIndexCert + itemsPerClickCert;
-    i++
-  ) {
-    if (mobHiddenCert[i]) {
-      mobHiddenCert[i].style.display = "block";
-    }
-  }
-  currentIndexCert += itemsPerClickCert;
-
-  if (currentIndexCert >= mobHiddenCert.length) {
-    mobShowMoreCert.style.display = "none";
-  }
-});
-
-//Lap show more button landscape shows 4 projects
-
-const lapShowMoreCert = document.getElementById("lap-show-more-cert");
-let lapHiddenCert = document.querySelectorAll(".lap-hidden-cert");
-let currentCert = 0;
-const itemsCert = 4;
-
-lapShowMoreCert.addEventListener("click", () => {
-  for (let i = currentCert; i < currentCert + itemsCert; i++) {
-    if (lapHiddenCert[i]) {
-      lapHiddenCert[i].style.display = "block";
-    }
-  }
-  currentCert += itemsCert;
-
-  if (currentCert >= lapHiddenCert.length) {
-    lapShowMoreCert.style.display = "none";
-  }
-});
-
-//contact section
-
+// =================== Contact Form ===================
 const form = document.querySelector("form");
 const statusText = document.getElementById("form-status");
 
-form.addEventListener("submit", function (e) {
-  const email = form.querySelector('input[name="email"]').value;
-  const name = form.querySelector('input[name="name"]').value;
-  const message = form.querySelector('textarea[name="message"]').value;
-
-  // Simple email validation
+form?.addEventListener("submit", (e) => {
+  const email = form.querySelector('input[name="email"]').value.trim();
+  const name = form.querySelector('input[name="name"]').value.trim();
+  const message = form.querySelector('textarea[name="message"]').value.trim();
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   if (!email || !name || !message) {
     e.preventDefault();
-    statusText.innerText = "Please fill in all required fields.";
-    statusText.style.color = "red";
-    statusText.style.display = "block";
+    showFormStatus("Please fill in all required fields.", "red");
     return;
   }
 
   if (!emailRegex.test(email)) {
     e.preventDefault();
-    statusText.innerText = "Please enter a valid email address.";
-    statusText.style.color = "red";
-    statusText.style.display = "block";
+    showFormStatus("Please enter a valid email address.", "red");
     return;
   }
 
-  // Show success message after a short delay
+  // Fake delay for success simulation
   setTimeout(() => {
-    statusText.innerText = "Message sent successfully!";
-    statusText.style.color = "var(--main-color)";
-    statusText.style.display = "block";
+    showFormStatus("Message sent successfully!", "var(--main-color)");
     form.reset();
   }, 300);
 });
-=======
-let menuIcon = document.querySelector("#menu-icon");
-let navbar = document.querySelector(".navbar");
 
-menuIcon.onclick = () => {
-  menuIcon.classList.toggle("bx-x");
-  navbar.classList.toggle("active");
-};
-
-document.addEventListener("click", (event) => {
-  const isClickInsideMenu =
-    navbar.contains(event.target) || menuIcon.contains(event.target);
-
-  if (navbar.classList.contains("active") && !isClickInsideMenu) {
-    menuIcon.classList.remove("bx-x");
-    navbar.classList.remove("active");
-  }
-});
-
-// Scroll behavior
-let sections = document.querySelectorAll("section");
-let navLinks = document.querySelectorAll("header nav a");
-
-window.onscroll = () => {
-  let header = document.querySelector("header");
-  header.classList.toggle("sticky", window.scrollY > 100);
-
-  sections.forEach((sec) => {
-    let top = window.scrollY;
-    let offset = sec.offsetTop - 150;
-    let height = sec.offsetHeight;
-    let id = sec.getAttribute("id");
-
-    if (top >= offset && top < offset + height) {
-      navLinks.forEach((link) => link.classList.remove("active"));
-      document
-        .querySelector("header nav a[href*=" + id + "]")
-        .classList.add("active");
-    }
-  });
-
-  // close navbar on scroll
-  menuIcon.classList.remove("bx-x");
-  navbar.classList.remove("active");
-};
-
-// smooth close on link click
-navLinks.forEach((link) => {
-  link.addEventListener("click", () => {
-    menuIcon.classList.remove("bx-x");
-    navbar.classList.remove("active");
-  });
-});
-
-// scroll reveal contents
-document.addEventListener("DOMContentLoaded", () => {
-  ScrollReveal().reveal(".home-content, .heading", {
-    origin: "top",
-    distance: "50px",
-    duration: 1000,
-  });
-  ScrollReveal().reveal(".home-image, .contact form", {
-    origin: "bottom",
-    distance: "50px",
-    duration: 1000,
-  });
-  ScrollReveal().reveal(".home-content h1, .about-image", {
-    origin: "left",
-    distance: "50px",
-    duration: 1000,
-  });
-  ScrollReveal().reveal(
-    ".home-content .passion,.home-content p, .about-content",
-    {
-      origin: "right",
-      distance: "50px",
-      duration: 1000,
-    }
-  );
-
-  const typed = new Typed(".multiple-text", {
-    strings: [
-      "CS Student",
-      "Aspiring Security Analyst",
-      "Cybersecurity Enthusiast",
-    ],
-    typeSpeed: 100,
-    backSpeed: 100,
-    backDelay: 1000,
-    loop: true,
-  });
-});
-
-//max 750 px shows 3 projects
-const showMoreBtn = document.getElementById("showMoreBtn");
-let hiddenBoxes = document.querySelectorAll(".hidden-box");
-let currentIndex = 0;
-const itemsPerClick = 3;
-
-showMoreBtn.addEventListener("click", () => {
-  for (let i = currentIndex; i < currentIndex + itemsPerClick; i++) {
-    if (hiddenBoxes[i]) {
-      hiddenBoxes[i].style.display = "flex";
-    }
-  }
-  currentIndex += itemsPerClick;
-
-  if (currentIndex >= hiddenBoxes.length) {
-    showMoreBtn.style.display = "none";
-  }
-});
-
-//landscape shows 4 projecta
-
-const showMoreListBtn = document.getElementById("showMoreListBtn");
-let hiddenBoxesList = document.querySelectorAll(".projects-list");
-let current = 0;
-const items = 4;
-
-showMoreListBtn.addEventListener("click", () => {
-  for (let i = current; i < current + items; i++) {
-    if (hiddenBoxesList[i]) {
-      hiddenBoxesList[i].style.display = "flex";
-    }
-  }
-  current += items;
-
-  if (current >= hiddenBoxesList.length) {
-    showMoreListBtn.style.display = "none";
-  }
-});
-
-//contact section
-
-const form = document.querySelector("form");
-const statusText = document.getElementById("form-status");
-
-form.addEventListener("submit", function (e) {
-  const email = form.querySelector('input[name="email"]').value;
-  const name = form.querySelector('input[name="name"]').value;
-  const message = form.querySelector('textarea[name="message"]').value;
-
-  // Simple email validation
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-  if (!email || !name || !message) {
-    e.preventDefault();
-    statusText.innerText = "Please fill in all required fields.";
-    statusText.style.color = "red";
+function showFormStatus(message, color) {
+  if (statusText) {
+    statusText.innerText = message;
+    statusText.style.color = color;
     statusText.style.display = "block";
-    return;
   }
-
-  if (!emailRegex.test(email)) {
-    e.preventDefault();
-    statusText.innerText = "Please enter a valid email address.";
-    statusText.style.color = "red";
-    statusText.style.display = "block";
-    return;
-  }
-
-  // Show success message after a short delay
-  setTimeout(() => {
-    statusText.innerText = "Message sent successfully!";
-    statusText.style.color = "var(--main-color)";
-    statusText.style.display = "block";
-    form.reset();
-  }, 300);
-});
->>>>>>> 44c11eb4e2c6e7837eb4bf7f31c77f16fb073e48
+}

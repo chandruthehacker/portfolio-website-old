@@ -13,9 +13,10 @@
   </head>
   <body>
     <header>
-      <h1>🔍 Log Analysis Project</h1>
+      <h1>🧠 Log Parser – Intelligent Log Analyzer</h1>
       <p class="subtitle">
-        Real-Time Detection of Brute Force Attacks in Linux Systems
+        Detect Threats from Linux Log Files with Brute-Force Detection, Regex
+        Parsing, and Visualization
       </p>
     </header>
 
@@ -24,117 +25,262 @@
         <button onclick="history.back()">
           <i class="bx bx-arrow-back"></i>Back
         </button>
-        <a href="#" target="_blank"
-          >Read on Medium <i class="bx bx-link-external"></i
-        ></a>
-        <a href="#" target="_blank"
+        <a href="../../projects.html"
           >View All Projects <i class="bx bx-link-external"></i
         ></a>
+        <a href="https://www.linkedin.com/in/chandraprakash87/" target="_blank">
+          Connect on LinkedIn <i class="bx bx-link-external"></i>
+        </a>
       </div>
 
       <h2 class="side-heading">🔍 Project Overview</h2>
       <div class="overview">
         <p>
-          This project showcases a lightweight Python-based tool for analyzing
-          Linux system logs to detect brute force attacks, unauthorized access
-          attempts, and other suspicious login patterns.
-        </p>
-        <p>
-          Using regular expressions and CLI automation, the tool parses files
-          like <code>/var/log/auth.log</code> to extract security events and
-          flag anomalies. It offers both real-time monitoring and post-incident
-          analysis — essential for proactive threat detection.
+          This Python-based CLI tool automatically detects the type of log files
+          (Apache, Nginx, Syslog, Auth.log), parses them using regex, and
+          outputs results as CSV, Excel, or charts using Matplotlib. It includes
+          detection for brute-force SSH attacks, suspicious sudo activity,
+          geo-based anomalies, and odd-hour logins.
         </p>
       </div>
 
       <h2 class="side-heading">🧰 Tools & Technologies</h2>
       <ul class="tools">
-        <li><strong>Languages:</strong> Python, Bash</li>
+        <li><strong>Languages:</strong> Python 3</li>
+        <li>
+          <strong>Libraries:</strong> re, pandas, matplotlib, openpyxl, geoip2
+        </li>
         <li><strong>Tools:</strong> Wireshark, Splunk, Nmap</li>
-        <li><strong>Platforms:</strong> Linux (Ubuntu), VirtualBox</li>
+        <li><strong>OS:</strong> Linux (Ubuntu)</li>
       </ul>
 
       <h2 class="side-heading">✨ Key Features</h2>
       <ul class="key-features">
-        <li>Parses Linux system logs in real time</li>
-        <li>Identifies brute force login attempts and anomalies</li>
-        <li>Generates alerts for suspicious IPs</li>
-        <li>Fast and lightweight CLI interface — no GUI overhead</li>
+        <li>Auto-detects Apache, Nginx, Syslog, and Auth.log files</li>
+        <li>Detects brute-force attempts and other suspicious patterns</li>
+        <li>Visualizes login patterns and anomalies</li>
+        <li>Exports to CSV, Excel, or graphical reports</li>
+        <li>Lightweight and modular CLI interface</li>
       </ul>
+
+      <h2 class="side-heading">📦 Output Formats</h2>
+      <ul>
+        <li>
+          <code>.json</code> – Raw structured output for APIs or advanced
+          analysis
+        </li>
+        <li>
+          <code>.csv</code> – Clean tabular data for spreadsheets or log reviews
+        </li>
+        <li>
+          <code>.xlsx</code> – Formatted Excel sheets for business or audit use
+        </li>
+        <li>
+          <code>.png</code> / <code>.svg</code> – Graphs and charts
+          (matplotlib-based) for anomaly detection
+        </li>
+        <li>
+          <code>CLI</code> – Real-time terminal output for quick visibility
+        </li>
+      </ul>
+
+      <h2 class="side-heading">📂 File Structure</h2>
+      <pre><code class="file-structure">
+log-parser/
+├── parser.py
+├── requirements.txt
+├── detections/
+│   ├── apache_detections.py
+│   ├── authlog_detections.py
+│   ├── nginx_detections.py
+│   ├── syslog_detections.py
+├── log_patterns/
+│   ├── __init__.py
+│   ├── apache.py
+│   ├── authlog.py
+│   ├── common.py
+│   ├── nginx.py
+│   ├── syslog.py
+├── utils/
+|   ├── detector.py
+|   ├── output.py
+|   ├── visualizer.py
+      </code></pre>
+
+      <h2 class="side-heading">📥 Sample Input (auth.log)</h2>
+      <div class="scroll-box">
+        <pre><code>Jan  1 02:00:01 myhost sshd[1201]: Accepted password for chandru from 192.168.1.10 port 50001
+Jan  1 02:00:02 myhost sshd[1202]: Failed password for chandru from 192.168.1.10 port 50002
+Jan  1 02:00:02 myhost sshd[1203]: Failed password for chandru from 192.168.1.10 port 50003
+Jan  1 02:00:03 myhost sshd[1204]: Failed password for chandru from 192.168.1.10 port 50004
+Jan  1 02:00:03 myhost sshd[1205]: Failed password for chandru from 192.168.1.10 port 50005
+Jan  1 02:00:04 myhost sshd[1206]: Accepted password for chandru from 192.168.1.10 port 50006  
+Jan  1 03:00:05 myhost sshd[1207]: Accepted password for anthony from 10.0.0.20 port 22
+Jan  1 04:00:10 myhost sshd[1208]: Failed password for prince from 203.0.113.15 port 22
+Jan  1 04:00:15 myhost sshd[1209]: Accepted password for sanjay from 192.168.1.25 port 22
+Jan  1 05:00:01 myhost sshd[1210]: Accepted password for chandru from 192.168.1.10 port 22
+Jan  1 06:00:05 myhost sshd[1211]: Accepted password for anthony from 10.0.0.20 port 22
+Jan  1 07:00:10 myhost sshd[1212]: Failed password for prince from 203.0.113.15 port 22
+Jan  1 07:00:15 myhost sshd[1213]: Accepted password for sanjay from 192.168.1.25 port 22
+Jan  1 08:00:01 myhost sshd[1214]: Accepted password for chandru from 192.168.1.10 port 22
+Jan  1 09:00:05 myhost sshd[1215]: Accepted password for anthony from 10.0.0.20 port 22
+Jan  1 10:00:10 myhost sshd[1216]: Failed password for prince from 203.0.113.15 port 22
+Jan  1 10:00:15 myhost sshd[1217]: Accepted password for sanjay from 192.168.1.25 port 22
+Jan  1 11:00:01 myhost sshd[1218]: Accepted password for chandru from 192.168.1.10 port 22
+Jan  1 12:00:05 myhost sshd[1219]: Accepted password for anthony from 10.0.0.20 port 22
+Jan  1 13:00:10 myhost sshd[1220]: Failed password for prince from 203.0.113.15 port 22
+Jan  1 13:00:15 myhost sshd[1221]: Accepted password for sanjay from 192.168.1.25 port 22
+Jan  2 01:00:01 myhost sshd[1222]: Accepted password for chandru from 192.168.1.10 port 22 
+Jan  2 01:00:05 myhost sshd[1223]: Accepted password for anthony from 10.0.0.20 port 22   
+Jan  2 03:00:10 myhost sshd[1224]: Accepted password for prince from 172.16.0.5 port 22   
+Jan  2 03:00:15 myhost sshd[1225]: Accepted password for sanjay from 192.168.1.25 port 22
+Jan  2 05:00:01 myhost sshd[1226]: Accepted password for chandru from 192.168.1.10 port 22
+Jan  2 06:00:05 myhost sshd[1227]: Accepted password for anthony from 10.0.0.20 port 22
+Jan  2 07:00:10 myhost sshd[1228]: Accepted password for prince from 172.16.0.5 port 22
+Jan  2 07:00:15 myhost sshd[1229]: Accepted password for sanjay from 192.168.1.25 port 22
+Jan  3 00:00:01 myhost sshd[1230]: Accepted password for chandru from 192.168.1.10 port 22 
+Jan  3 02:00:05 myhost sshd[1231]: Accepted password for anthony from 10.0.0.20 port 22   
+Jan  3 04:00:10 myhost sshd[1232]: Accepted password for prince from 172.16.0.5 port 22  
+Jan  3 04:00:15 myhost sshd[1233]: Accepted password for sanjay from 192.168.1.25 port 22
+Jan  4 08:00:01 myhost sshd[1234]: Accepted password for chandru from 192.168.1.10 port 22
+Jan  4 09:00:05 myhost sshd[1235]: Accepted password for anthony from 10.0.0.20 port 22
+Jan  4 10:00:10 myhost sshd[1236]: Accepted password for prince from 172.16.0.5 port 22
+Jan  4 10:00:15 myhost sshd[1237]: Accepted password for sanjay from 192.168.1.25 port 22
+Jan  5 12:00:01 myhost sshd[1238]: Accepted password for chandru from 192.168.1.10 port 22
+Jan  5 13:00:05 myhost sshd[1239]: Accepted password for anthony from 10.0.0.20 port 22
+Jan  5 14:00:10 myhost sshd[1240]: Accepted password for prince from 172.16.0.5 port 22
+Jan  5 14:00:15 myhost sshd[1241]: Accepted password for sanjay from 192.168.1.25 port 22
+Jan  6 16:00:01 myhost sudo:   chandru : TTY=pts/2 ; PWD=/home/chandru ; USER=root ; COMMAND=/bin/su - root  # Sudden sudo
+Jan  6 16:00:05 myhost sudo:   anthony : TTY=pts/3 ; PWD=/var/log/apache2 ; USER=root ; COMMAND=/usr/sbin/apache2ctl graceful
+Jan  6 08:00:10 myhost sudo:   prince : TTY=pts/4 ; PWD=/var/www ; USER=root ; COMMAND=/usr/bin/git pull origin main
+Jan  6 08:00:15 myhost sudo:   sanjay : TTY=pts/5 ; PWD=/etc/nginx/sites-available ; USER=root ; COMMAND=/usr/sbin/nginx -s reload
+Jan  6 17:00:01 myhost sudo:   chandru : TTY=pts/6 ; PWD=/root ; USER=root ; COMMAND=/usr/bin/apt-get update
+Jan  6 18:00:05 myhost sudo:   anthony : TTY=pts/7 ; PWD=/etc/ssh ; USER=root ; COMMAND=/usr/bin/vim /etc/ssh/sshd_config
+Jan  6 19:00:10 myhost sudo:   prince : TTY=pts/8 ; PWD=/home/prince/backups ; USER=root ; COMMAND=/usr/bin/tar -czvf backup.tar.gz /var/www
+Jan  6 20:00:15 myhost sudo:   sanjay : TTY=pts/9 ; PWD=/var/log/mysql ; USER=root ; COMMAND=/usr/bin/tail -f /var/log/mysql/error.log</code></pre>
+      </div>
+
+      <h2 class="side-heading section-title">🚨 Detected Alerts Output</h2>
+      <div class="scroll-box">
+        <pre><code>{
+    "Brute-Force SSH Attack": [
+        "192.168.1.10 failed to login 4 times (possible brute-force)",
+        "203.0.113.15 failed to login 4 times (possible brute-force)"
+    ],
+    "Suspicious Login Times": [
+        "chandru logged in from 192.168.1.10 at odd hour 2:00 (2025-01-01 02:00:01)",
+        "chandru logged in from 192.168.1.10 at odd hour 2:00 (2025-01-01 02:00:04)",
+        "anthony logged in from 10.0.0.20 at odd hour 3:00 (2025-01-01 03:00:05)",
+        "sanjay logged in from 192.168.1.25 at odd hour 4:00 (2025-01-01 04:00:15)",
+        "chandru logged in from 192.168.1.10 at odd hour 5:00 (2025-01-01 05:00:01)",
+        "chandru logged in from 192.168.1.10 at odd hour 1:00 (2025-01-02 01:00:01)",
+        "anthony logged in from 10.0.0.20 at odd hour 1:00 (2025-01-02 01:00:05)",
+        "prince logged in from 172.16.0.5 at odd hour 3:00 (2025-01-02 03:00:10)",
+        "sanjay logged in from 192.168.1.25 at odd hour 3:00 (2025-01-02 03:00:15)",
+        "chandru logged in from 192.168.1.10 at odd hour 5:00 (2025-01-02 05:00:01)",
+        "chandru logged in from 192.168.1.10 at odd hour 0:00 (2025-01-03 00:00:01)",
+        "anthony logged in from 10.0.0.20 at odd hour 2:00 (2025-01-03 02:00:05)",
+        "prince logged in from 172.16.0.5 at odd hour 4:00 (2025-01-03 04:00:10)",
+        "sanjay logged in from 192.168.1.25 at odd hour 4:00 (2025-01-03 04:00:15)"
+    ],
+    "Logins from New or Rare IPs": [
+        "New IP 192.168.1.10 used by chandru at 2025-01-01 02:00:01",
+        "New IP 10.0.0.20 used by anthony at 2025-01-01 03:00:05",
+        "New IP 192.168.1.25 used by sanjay at 2025-01-01 04:00:15",
+        "New IP 172.16.0.5 used by prince at 2025-01-02 03:00:10"
+    ],
+    "Multiple Failed Then Successful Login": [
+        "192.168.1.10 user chandru succeeded login after 4 failures"
+    ],
+    "Sudden Sudo Access": [
+        "chandru ran sudo command '/bin/su - root  # Sudden sudo' at 2025-01-06 16:00:01",
+        "anthony ran sudo command '/usr/sbin/apache2ctl graceful' at 2025-01-06 16:00:05",
+        "prince ran sudo command '/usr/bin/git pull origin main' at 2025-01-06 08:00:10",
+        "sanjay ran sudo command '/usr/sbin/nginx -s reload' at 2025-01-06 08:00:15",
+        "chandru ran sudo command '/usr/bin/apt-get update' at 2025-01-06 17:00:01",
+        "anthony ran sudo command '/usr/bin/vim /etc/ssh/sshd_config' at 2025-01-06 18:00:05",
+        "prince ran sudo command '/usr/bin/tar -czvf backup.tar.gz /var/www' at 2025-01-06 19:00:10",
+        "sanjay ran sudo command '/usr/bin/tail -f /var/log/mysql/error.log' at 2025-01-06 20:00:15"
+    ]
+}</code></pre>
+      </div>
 
       <h2 class="side-heading">💻 Source Code</h2>
       <div class="source-code">
         <a
-          href="https://github.com/chandruthehacker?tab=packages"
+          href="https://github.com/chandruthehacker/log-parser"
           target="_blank"
         >
-          <span class="github-link">github.com/chandruthehacker</span>
+          <span class="github-link">log-parser</span>
           <i class="bx bx-link-external"></i>
         </a>
       </div>
 
       <h2 class="side-heading">⚙️ How It Works</h2>
       <div class="how-it-works">
-        <h4>
-          <strong>Note:</strong> This tool operates passively — it does not
-          initiate active scans or generate network noise.
-        </h4>
-
-        <h3>1. Fetch Public IP Address</h3>
+        <h3>1. Detect Log Type</h3>
         <p>
-          The script retrieves your current public IP to track external access
-          patterns and detect anomalies in incoming requests.
+          The tool scans the first few lines of the log and identifies its
+          format automatically.
         </p>
 
-        <h3>2. Parse Log Files</h3>
+        <h3>2. Parse the File</h3>
         <p>
-          It reads log files such as <code>/var/log/auth.log</code> and uses
-          regex to isolate failed login attempts, timestamp patterns, and IP
-          addresses.
+          Using regex and custom handlers for each log type, the tool extracts
+          IPs, timestamps, status codes, and more.
         </p>
 
-        <h3>3. Flag Suspicious Activity</h3>
+        <h3>3. Analyze & Export</h3>
         <p>
-          Based on frequency, location, and timing, it flags repeated failures
-          or logins from unknown sources as potential brute force attacks.
+          Data is analyzed for threats (e.g., brute-force patterns, odd-hour
+          logins) and exported in user-specified formats.
         </p>
       </div>
 
       <h2 class="side-heading">🚀 How to Use</h2>
       <div class="how-to-use">
         <h3>Step 1: Clone the Repository</h3>
-        <p>
-          Run <code>git clone</code> to download the project files to your
-          system.
-        </p>
+        <div class="copy-container">
+          <pre>$ <code>git clone https://github.com/chandruthehacker/log-parser.git</code></pre>
+          <button class="copy-btn" onclick="copyToClipboard(this)">
+            <i class="bx bx-copy-alt"></i>
+          </button>
+        </div>
+        <h3>Step 2: Chande directory to log-parser</h3>
+        <div class="copy-container">
+          <pre>$ <code>cd log-parser</code></pre>
+          <button class="copy-btn" onclick="copyToClipboard(this)">
+            <i class="bx bx-copy-alt"></i>
+          </button>
+        </div>
+        <h3>Step 3: Install Dependencies</h3>
+        <div class="copy-container">
+          <pre>$ <code>pip install -r requirements.txt</code></pre>
+          <button class="copy-btn" onclick="copyToClipboard(this)">
+            <i class="bx bx-copy-alt"></i>
+          </button>
+        </div>
 
-        <h3>Step 2: Give Permissions</h3>
-        <p>
-          Make the script executable using <code>chmod +x log_parser.py</code>.
-        </p>
-
-        <h3>Step 3: Run the Tool</h3>
-        <p>
-          Execute the script from your terminal and point it to your desired log
-          file.
-        </p>
+        <h3>Step 4: Run the Tool</h3>
+        <div class="copy-container">
+          <pre>$ <code>python parser.py logs/auth.log [-o json] [-t authlog]</code></pre>
+          <button class="copy-btn" onclick="copyToClipboard(this)">
+            <i class="bx bx-copy-alt"></i>
+          </button>
+        </div>
       </div>
 
-      <h2 class="side-heading">📽️ Demo Video</h2>
-      <div class="demo-video">
-        <video
-          id="video"
-          preload="none"
-          poster="assets/images/universe.png"
-          controls
+      <h2 class="side-heading">👨‍💻 Author Info</h2>
+      <p>
+        Created by <strong>Chandraprakash C</strong> – BSc Computer Science |
+        Cybersecurity Enthusiast <br />
+        <a href="mailto:cyberchandru87@gmail.com">cyberchandru87@gmail.com</a> |
+        <a href="https://github.com/chandruthehacker" target="_blank">GitHub</a>
+        |
+        <a href="https://linkedin.com/in/chandraprakash87/" target="_blank"
+          >LinkedIn</a
         >
-          <source
-            src="assets/videos/1851190-uhd_3840_2160_25fps.mp4"
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
-        </video>
-      </div>
+      </p>
     </div>
   </body>
 </html>

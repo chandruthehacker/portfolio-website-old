@@ -358,7 +358,9 @@ span{
     font-size: 7rem;
     color: var(--main-color);
   }
-  
+  .project-box .btn{
+    margin-top: 3rem;
+  }
   .project-box h3{
     font-size: 2.6rem;
     margin-bottom: 3rem;

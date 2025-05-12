@@ -6,87 +6,81 @@
 
 ---
 
-## 👨‍💻 About Me
+## 👋 Hello! I'm Chandraprakash
 
-I'm **Chandraprakash C**, a passionate and persistent cybersecurity learner currently pursuing my **BSc in Computer Science (2nd Year)**. I specialize in **network security, penetration testing, and cyber threat analysis**. My ultimate goal is to become a **Security Analyst** and later establish a **cybersecurity startup** that helps businesses stay secure in the digital age.
+A **self-driven cybersecurity enthusiast** and **Computer Science undergrad (2nd Year)** on a mission to secure the digital world. With a strong foundation in **network security, log analysis, penetration testing**, and a passion for automation, I'm constantly building tools and exploring how to turn security knowledge into real-world solutions.
 
-I believe in the power of continuous learning, open source, and community building.
+I’m currently focused on **threat detection, incident response, and building my portfolio** through hands-on projects and certifications.
 
 ---
 
-## 🧠 What I Know
+## 🧠 Skills & Tools
 
-### 🛡️ Cybersecurity Skills
+### 🔐 Cybersecurity & Analysis
 
-- Network Security
-- Penetration Testing
-- Log Analysis
-- Threat Detection & Response
-- SIEM Tools (Splunk, etc.)
-- Vulnerability Scanning (Nmap, Nessus)
-- Packet Analysis (Wireshark)
+- Network Security · Threat Detection · Log Analysis
+- Vulnerability Assessment · Penetration Testing
+- SIEM (Splunk - beginner) · Incident Response
 
-### 💻 Programming & Scripting
+### 💻 Programming & Automation
 
-- Python (Scripting, Automation)
-- Bash
-- SQL (Log querying, Data extraction)
+- Python · Bash · SQL
+- Regex · argparse · Pandas · Matplotlib
+
+### ⚙️ Tools & Platforms
+
+- Wireshark · Nmap · Metasploit · Burp Suite
+- Nessus · John the Ripper · Hydra
+- Git & GitHub · VirtualBox · VMware
 
 ### 🐧 Operating Systems
 
-- Linux (Kali, Ubuntu, Debian)
-- Windows (Basic AD & Security configs)
-
-### 🧰 Tools & Platforms
-
-- Wireshark, Nmap, Nessus, Metasploit
-- Burp Suite, John the Ripper, Hydra
-- Git & GitHub
-- VirtualBox, VMware
-- Splunk (basic level)
+- Linux (Kali, Ubuntu) · Windows (Security Basics)
 
 ---
 
 ## 📜 Certifications
 
-- 🟢 **Google Cybersecurity Professional Certificate** _(Ongoing)_
-- 🟡 IBM Cybersecurity Analyst _(Planned)_
-- 📘 CEH (Certified Ethical Hacker) _(Future Goal)_
+- 🟢 **Google Cybersecurity Professional Certificate**
+- 🟡 **Internshala Ethical Hacking Training**
 
 ---
 
-## 🔭 Projects
+## 🔍 Highlight Project
 
-| Project Name               | Description                                                          | Tools/Skills Used              |
-| -------------------------- | -------------------------------------------------------------------- | ------------------------------ |
-| **PacketSniffer**          | A custom Python-based network sniffer to capture and analyze packets | Python, Scapy, Wireshark       |
-| **SQL Log Analyzer**       | Extracts and analyzes SQL logs for suspicious behavior               | SQL, Python                    |
-| **Nmap Auto Scanner**      | A Python script that automates Nmap scans and formats the results    | Nmap, Python                   |
-| **Linux Security Toolkit** | Bash scripts for common Linux hardening tasks                        | Bash, Linux                    |
-| **Phishing Simulation**    | Simulated phishing email system for awareness                        | Social Engineering, HTML, SMTP |
+### 🧾 Log Parser Tool
 
-> 💡 Visit my GitHub repos to explore each project in depth!
+An intelligent CLI tool that:
 
----
+- 🧠 **Auto-detects** log types (Apache, Nginx, Authlog, Syslog)
+- 📊 **Parses** them into JSON, CSV, Excel, or graphs
+- 🚨 **Detects threats** like:
+  - SSH brute-force attacks
+  - Suspicious sudo usage
+  - GeoIP login anomalies
+  - Forbidden URL access
+  - Cron job injection & odd-hour logins
 
-## 🌐 Online Presence
-
-- 💼 [LinkedIn](https://www.linkedin.com/in/chandraprakash87/)
-- 📁 [GitHub Portfolio](https://github.com/chandruthehacker)
-- 📨 [Email Me](mailto:cyberchandru87@gmail.com)
+**Tech Used**: Python, Pandas, Regex, Matplotlib, GeoIP  
+🔗 [View Project on GitHub »](https://github.com/chandruthehacker/log-parser)
 
 ---
 
-## 🎯 Goals for 2025
+## 🎯 2025 Goals
 
-- ✅ Complete Google Cybersecurity Certificate
-- 🔜 Land an **entry-level Security Analyst** role
-- 🚀 Contribute to open-source security projects
-- 🧑‍🏫 Share cybersecurity tips and content on [LinkedIn](https://www.linkedin.com/in/chandraprakash87/)
-- 🏁 Start building my **cybersecurity startup** idea
+- 📚 Contribute to open-source security tools
+- 🧠 Share cybersecurity insights on LinkedIn
 
 ---
 
-## 📢 Let's Connect
+## 🌐 Connect with Me
 
-I’m always open to collaborate, contribute to open-source, or just chat about cybersecurity and tech. Don’t hesitate to reach out. Let's make the digital world a safer place together 🔐
+Whether you're hiring, collaborating, or just geeking out about cybersecurity—I'm always open to connect!
+
+📫 **Email**: [cyberchandru87@gmail.com](mailto:cyberchandru87@gmail.com)  
+🔗 **LinkedIn**: [linkedin.com/in/chandraprakash87](https://www.linkedin.com/in/chandraprakash87/)  
+💻 **GitHub**: [github.com/chandruthehacker](https://github.com/chandruthehacker)
+
+---
+
+> _“Security is not a product, but a process. Let's make the internet safer, one packet at a time.”_

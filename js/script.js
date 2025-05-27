@@ -1,21 +1,22 @@
 function viewAndDownloadResume() {
-  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
   const timestamp = new Date().getTime();
   const url = `assets/pdf/resume.pdf?v=${timestamp}`;
 
-  window.open(url, "_blank"); // open in new tab always
+  // Open resume for viewing
+  window.open(url, "_blank");
 
+  // Trigger download
   const link = document.createElement("a");
   link.href = url;
-
-  if (!isMobile) {
-    link.download = "resume.pdf"; // only force download on desktop
-  }
-
+  link.download = "resume.pdf";
   document.body.appendChild(link);
+
+  // This click triggers download, but might be blocked on mobile
   link.click();
+
   document.body.removeChild(link);
 }
+
 
 // =================== Navigation Toggle ===================
 const menuIcon = document.querySelector("#menu-icon");

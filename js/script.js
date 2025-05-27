@@ -1,14 +1,14 @@
-const timestamp = new Date().getTime();
-
 function viewAndDownloadResume() {
+  const timestamp = new Date().getTime();
   window.open(`assets/pdf/resume.pdf?v=${timestamp}`, "_blank");
   const link = document.createElement("a");
-  link.href = "assets/pdf/resume.pdf?v=2";
+  link.href = `assets/pdf/resume.pdf?v=${timestamp}`;
   link.download = "resume.pdf";
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
 }
+
 // =================== Navigation Toggle ===================
 const menuIcon = document.querySelector("#menu-icon");
 const navbar = document.querySelector(".navbar");

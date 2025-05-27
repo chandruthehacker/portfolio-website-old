@@ -4,10 +4,8 @@ function viewAndDownloadResume() {
   const url = `assets/pdf/resume.pdf?v=${timestamp}`;
 
   if (isMobile) {
-    // Just open for viewing on mobile
     window.open(url, "_blank");
   } else {
-    // Desktop: view + download
     window.open(url, "_blank");
     const link = document.createElement("a");
     link.href = url;

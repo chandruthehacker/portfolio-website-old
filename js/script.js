@@ -3,17 +3,18 @@ function viewAndDownloadResume() {
   const timestamp = new Date().getTime();
   const url = `assets/pdf/resume.pdf?v=${timestamp}`;
 
-  if (isMobile) {
-    window.open(url, "_blank");
-  } else {
-    window.open(url, "_blank");
-    const link = document.createElement("a");
-    link.href = url;
-    link.download = "resume.pdf";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+  window.open(url, "_blank"); // open in new tab always
+
+  const link = document.createElement("a");
+  link.href = url;
+
+  if (!isMobile) {
+    link.download = "resume.pdf"; // only force download on desktop
   }
+
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
 }
 
 // =================== Navigation Toggle ===================

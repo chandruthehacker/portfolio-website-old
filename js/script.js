@@ -1,3 +1,14 @@
+const timestamp = new Date().getTime();
+
+function viewAndDownloadResume() {
+  window.open(`assets/pdf/resume.pdf?v=${timestamp}`, "_blank");
+  const link = document.createElement("a");
+  link.href = "assets/pdf/resume.pdf?v=2";
+  link.download = "resume.pdf";
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
 // =================== Navigation Toggle ===================
 const menuIcon = document.querySelector("#menu-icon");
 const navbar = document.querySelector(".navbar");
@@ -20,7 +31,9 @@ const sections = document.querySelectorAll("section");
 const navLinks = document.querySelectorAll("header nav a");
 
 window.onscroll = () => {
-  document.querySelector("header").classList.toggle("sticky", window.scrollY > 100);
+  document
+    .querySelector("header")
+    .classList.toggle("sticky", window.scrollY > 100);
 
   sections.forEach((sec) => {
     const top = window.scrollY;
@@ -30,7 +43,9 @@ window.onscroll = () => {
 
     if (top >= offset && top < offset + height) {
       navLinks.forEach((link) => link.classList.remove("active"));
-      document.querySelector(`header nav a[href*="${id}"]`)?.classList.add("active");
+      document
+        .querySelector(`header nav a[href*="${id}"]`)
+        ?.classList.add("active");
     }
   });
 
@@ -49,17 +64,36 @@ navLinks.forEach((link) => {
 
 // =================== ScrollReveal Animations ===================
 document.addEventListener("DOMContentLoaded", () => {
-  ScrollReveal().reveal(".home-content, .heading", { origin: "top", distance: "50px", duration: 1000 });
-  ScrollReveal().reveal(".home-image, .contact form", { origin: "bottom", distance: "50px", duration: 1000 });
-  ScrollReveal().reveal(".home-content h1, .about-image", { origin: "left", distance: "50px", duration: 1000 });
-  ScrollReveal().reveal(".home-content .passion, .home-content p, .about-content", {
-    origin: "right",
+  ScrollReveal().reveal(".home-content, .heading", {
+    origin: "top",
     distance: "50px",
     duration: 1000,
   });
+  ScrollReveal().reveal(".home-image, .contact form", {
+    origin: "bottom",
+    distance: "50px",
+    duration: 1000,
+  });
+  ScrollReveal().reveal(".home-content h1, .about-image", {
+    origin: "left",
+    distance: "50px",
+    duration: 1000,
+  });
+  ScrollReveal().reveal(
+    ".home-content .passion, .home-content p, .about-content",
+    {
+      origin: "right",
+      distance: "50px",
+      duration: 1000,
+    }
+  );
 
   new Typed(".multiple-text", {
-    strings: ["CS Student", "Aspiring Security Analyst", "Cybersecurity Enthusiast"],
+    strings: [
+      "CS Student",
+      "Aspiring Security Analyst",
+      "Cybersecurity Enthusiast",
+    ],
     typeSpeed: 100,
     backSpeed: 100,
     backDelay: 1000,
@@ -67,8 +101,18 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Hide "Show More" buttons if all items are visible
-  checkVisibility(".projects-container", ".project-box", "#lap-show-more", "#mob-show-more");
-  checkVisibility(".certificates-container", ".certificate-box", "#lap-show-more-cert", "#mob-show-more-cert");
+  checkVisibility(
+    ".projects-container",
+    ".project-box",
+    "#lap-show-more",
+    "#mob-show-more"
+  );
+  checkVisibility(
+    ".certificates-container",
+    ".certificate-box",
+    "#lap-show-more-cert",
+    "#mob-show-more-cert"
+  );
 });
 
 function checkVisibility(containerSelector, itemSelector, lapBtnId, mobBtnId) {
@@ -77,7 +121,11 @@ function checkVisibility(containerSelector, itemSelector, lapBtnId, mobBtnId) {
   const lapBtn = document.querySelector(lapBtnId);
   const mobBtn = document.querySelector(mobBtnId);
 
-  if (!items || items.length === 0 || Array.from(items).every((box) => box.offsetParent !== null)) {
+  if (
+    !items ||
+    items.length === 0 ||
+    Array.from(items).every((box) => box.offsetParent !== null)
+  ) {
     lapBtn && (lapBtn.style.display = "none");
     mobBtn && (mobBtn.style.display = "none");
   }

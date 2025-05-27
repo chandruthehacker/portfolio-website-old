@@ -1,20 +1,21 @@
 function viewAndDownloadResume() {
+  const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
   const timestamp = new Date().getTime();
   const url = `assets/pdf/resume.pdf?v=${timestamp}`;
 
-  const link = document.createElement("a");
-  link.href = url;
-  link.download = "resume.pdf";
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
+  if (isMobile) {
+    window.open(url, "");
+  } else {
+    window.open(url, "_blank");
 
-  // Optional fallback for mobile
-  setTimeout(() => {
-    if (/Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-      window.open(url, "_blank"); // View fallback
-    }
-  }, 1000);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "resume.pdf";
+
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
 }
 
 // =================== Navigation Toggle ===================

@@ -350,9 +350,9 @@ span{
   
   .project-box img{
     width: 100%;
-    height: auto;
     border-radius: 15px;
     height: 180px;
+    box-shadow: 0 0 .3rem rgb(159, 159, 159);
   }
   .project-box i{
     font-size: 7rem;
@@ -441,6 +441,7 @@ span{
     width: 90%;
     height: 180px;
     border-radius: 15px;
+    box-shadow:  0 0 .3rem rgb(24, 24, 24);
 }
 .certificate-box i{
     font-size: 7rem;

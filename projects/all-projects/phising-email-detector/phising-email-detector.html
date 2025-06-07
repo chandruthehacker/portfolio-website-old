@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PhishGuard – AI-Powered Email Threat Detector</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <script src="js/script.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>🔍 PhishGuard – AI-Powered Email Threat Detector</h1>
+      <p class="subtitle">
+        Detect suspicious emails instantly using Google's Generative AI. Stay
+        protected, stay informed.
+      </p>
+    </header>
+
+    <div class="content">
+      <div class="buttons">
+        <button onclick="history.back()">
+          <i class="bx bx-arrow-back"></i> Back
+        </button>
+        <a href="../../projects.html"
+          >View All Projects <i class="bx bx-link-external"></i
+        ></a>
+        <a href="https://www.linkedin.com/in/chandraprakash87/" target="_blank">
+          Connect on LinkedIn <i class="bx bx-link-external"></i>
+        </a>
+      </div>
+
+      <h2 class="side-heading">🧠 Project Overview</h2>
+      <div class="overview">
+        <p>
+          PhishGuard is an AI-powered tool that detects phishing emails using
+          Google’s Generative AI. Users can paste email content into a simple
+          web interface and get instant results. It uses natural language
+          understanding to assess the threat level. Built with Flask and
+          JavaScript, it's lightweight and easy to use.
+        </p>
+      </div>
+
+      <h2 class="side-heading">🧰 Tools & Technologies</h2>
+      <ul class="tools">
+        <li><strong>Languages:</strong> Python 3, JavaScript, HTML, CSS</li>
+        <li>
+          <strong>Libraries:</strong> Flask, Flask-CORS, python-dotenv,
+          google-generativeai
+        </li>
+        <li><strong>Tools:</strong> Google Generative AI (Gemini API)</li>
+        <li><strong>Frontend:</strong> HTML, CSS, JavaScript</li>
+        <li><strong>OS:</strong> Windows, macOS, Linux</li>
+      </ul>
+
+      <h2 class="side-heading">✨ Key Features</h2>
+      <ul class="key-features">
+        <li>
+          Analyzes email content using Google’s Generative AI (Gemini API)
+        </li>
+        <li>Detects phishing intent with natural language understanding</li>
+        <li>Simple web interface for quick input and real-time results</li>
+        <li>Secures API key using environment variables (.env)</li>
+        <li>Lightweight Flask-based backend with CORS support</li>
+        <li>Auto-launches the web interface in your browser</li>
+      </ul>
+
+      <h2 class="side-heading">📂 File Structure</h2>
+      <pre><code class="file-structure">
+phishing-email-detector/
+├── app.py
+├── .env
+├── requirements.txt
+├── frontend/
+│   ├── index.html
+│   ├── style.css
+│   └── script.js
+      </code></pre>
+
+      <h2 class="side-heading">🚀 How to Use</h2>
+      <div class="how-to-use">
+        <h3>Step 1: Clone the Repository</h3>
+        <div class="copy-container">
+          <pre>$ <code>git clone https://github.com/chandruthehacker/phising-email-detector.git</code></pre>
+          <button class="copy-btn" onclick="copyToClipboard(this)">
+            <i class="bx bx-copy-alt"></i>
+          </button>
+        </div>
+
+        <h3>Step 2: Navigate to the Project Directory</h3>
+        <div class="copy-container">
+          <pre>$ <code>cd phising-email-detector</code></pre>
+          <button class="copy-btn" onclick="copyToClipboard(this)">
+            <i class="bx bx-copy-alt"></i>
+          </button>
+        </div>
+
+        <h3>Step 3: Create a Virtual Environment</h3>
+        <p><strong>For Windows:</strong></p>
+        <div class="copy-container">
+          <pre>$ <code>python -m venv venv</code></pre>
+          <button class="copy-btn" onclick="copyToClipboard(this)">
+            <i class="bx bx-copy-alt"></i>
+          </button>
+        </div>
+        <div class="copy-container">
+          <pre>$ <code>venv\Scripts\activate</code></pre>
+          <button class="copy-btn" onclick="copyToClipboard(this)">
+            <i class="bx bx-copy-alt"></i>
+          </button>
+        </div>
+
+        <p><strong>For macOS / Linux:</strong></p>
+        <div class="copy-container">
+          <pre>$ <code>python3 -m venv venv</code></pre>
+          <button class="copy-btn" onclick="copyToClipboard(this)">
+            <i class="bx bx-copy-alt"></i>
+          </button>
+        </div>
+        <div class="copy-container">
+          <pre>$ <code>source venv/bin/activate</code></pre>
+          <button class="copy-btn" onclick="copyToClipboard(this)">
+            <i class="bx bx-copy-alt"></i>
+          </button>
+        </div>
+
+        <h3>Step 4: Install Required Dependencies</h3>
+        <div class="copy-container">
+          <pre>$ <code>pip install -r requirements.txt</code></pre>
+          <button class="copy-btn" onclick="copyToClipboard(this)">
+            <i class="bx bx-copy-alt"></i>
+          </button>
+        </div>
+
+        <h3>Step 5: Run the Application</h3>
+        <div class="copy-container">
+          <pre>$ <code>python app.py</code></pre>
+          <button class="copy-btn" onclick="copyToClipboard(this)">
+            <i class="bx bx-copy-alt"></i>
+          </button>
+        </div>
+
+        <h3>Step 6: Enter Your Google Generative AI API Key</h3>
+        <p>
+          Get your API key from
+          <a href="https://aistudio.google.com/app/apikey" target="_blank"><span class="api-name">API link click here</span>
+             <span class="api-link">https://aistudio.google.com/app/apikey</span></a
+          >
+          and paste it in the terminal when prompted.
+        </p>
+      </div>
+
+      <h2 class="side-heading">💻 Source Code</h2>
+      <div class="source-code">
+        <a
+          href="https://github.com/chandruthehacker/phising-email-detector"
+          target="_blank"
+        >
+          <span class="github-link">phising-email-detector</span>
+          <i class="bx bx-link-external"></i>
+        </a>
+      </div>
+
+      <h2 class="side-heading">🎥 Demo Video</h2>
+      <div class="video-container">
+        <video width="90%" controls poster="">
+          <source src="assets/videos/video.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <h2 class="side-heading">👨‍💻 Author Info</h2>
+      <p>
+        Created by <strong>Chandraprakash C</strong> – BSc Computer Science |
+        Cybersecurity Enthusiast <br />
+        <a href="mailto:cyberchandru87@gmail.com">cyberchandru87@gmail.com</a> |
+        <a href="https://github.com/chandruthehacker" target="_blank">GitHub</a>
+        |
+        <a href="https://linkedin.com/in/chandraprakash87/" target="_blank"
+          >LinkedIn</a
+        >
+      </p>
+
+      <blockquote class="quote">
+        “Think before you click. Detect before you risk.”
+      </blockquote>
+    </div>
+  </body>
+</html>

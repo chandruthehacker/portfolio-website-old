@@ -126,6 +126,7 @@ span{
   height: auto;
   border-radius: 15px;
   height: 180px;
+  box-shadow: 0 0 .7rem black;
 }
 .project-box i{
   font-size: 7rem;

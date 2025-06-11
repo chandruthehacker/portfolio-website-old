@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Honeypot Trap Logger – Cybersecurity Project</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/script.js" defer></script>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>🛡️ Honeypot Trap Logger – Track & Analyze Attacker Behavior</h1>
+      <p class="subtitle">
+        Deploy a low-interaction honeypot to capture intrusion attempts, log
+        attacker behavior, and analyze patterns.
+      </p>
+    </header>
+
+    <div class="content">
+      <div class="buttons">
+        <button onclick="history.back()">
+          <i class="bx bx-arrow-back"></i>Back
+        </button>
+        <a href="../../projects.html"
+          >View All Projects <i class="bx bx-link-external"></i
+        ></a>
+        <a href="https://linkedin.com/in/chandraprakash87/" target="_blank"
+          >Connect on LinkedIn <i class="bx bx-link-external"></i
+        ></a>
+      </div>
+
+      <h2 class="side-heading">🔍 Project Overview</h2>
+      <p>
+        This Python-based project uses Flask to simulate a fake admin login
+        page. Whenever a visitor accesses or submits the page, the system logs
+        the event along with IP, User-Agent, and form fields. This data helps
+        understand attack behaviors and can be used for threat analysis.
+      </p>
+
+      <h2 class="side-heading">🧰 Tools & Technologies</h2>
+      <ul class="tools">
+        <li><strong>Languages:</strong> Python 3, HTML/CSS</li>
+        <li><strong>Framework:</strong> Flask</li>
+        <li>
+          <strong>Technologies:</strong> Honeypot, Logging, JSONL, Regex
+          (optional)
+        </li>
+        <li><strong>Tested On:</strong> Kali Linux, WSL2</li>
+      </ul>
+
+      <h2 class="side-heading">✨ Key Features</h2>
+      <ul class="key-features">
+        <li>Fake login portal mimicking an admin panel</li>
+        <li>Logs both access attempts and login form submissions</li>
+        <li>Records IP address, user-agent, credentials, and path</li>
+        <li>Stores access logs and login attempts separately</li>
+        <li>Can be extended with anomaly detection or alerting</li>
+      </ul>
+
+      <h2 class="side-heading">📂 File Structure</h2>
+      <pre class="file-structure-pre"><code class="file-structure">
+honeypot-trap-logger/
+├── honeypot.py
+├── requirements.txt
+├── templates/
+│   ├── admin_login.html
+│   └── access_denied.html
+├── static/
+│   └── style.css
+├── logs/
+│   ├── access_logs.jsonl
+│   └── login_attempts.jsonl
+└── README.md
+      </code></pre>
+
+      <h2 class="side-heading">🚀 How to Use</h2>
+      <div class="how-to-use">
+        <h3 class="poppins">Step 1: Clone the Repository</h3>
+        <div class="copy-container">
+          <pre>$ <code>git clone https://github.com/chandruthehacker/honeypot-trap-logger.git</code></pre>
+          <button class="copy-btn" onclick="copyToClipboard(this)">
+            <i class="bx bx-copy-alt"></i>
+          </button>
+        </div>
+
+        <h3 class="poppins">Step 2: Install Dependencies</h3>
+        <div class="copy-container">
+          <pre>$ <code>pip install flask</code></pre>
+          <button class="copy-btn" onclick="copyToClipboard(this)">
+            <i class="bx bx-copy-alt"></i>
+          </button>
+        </div>
+
+        <h3 class="poppins">Step 3: Run the Honeypot</h3>
+        <div class="copy-container">
+          <pre>$ <code>python app.py</code></pre>
+          <button class="copy-btn" onclick="copyToClipboard(this)">
+            <i class="bx bx-copy-alt"></i>
+          </button>
+        </div>
+      </div>
+
+      <h2 class="side-heading">📊 Example Log Entry</h2>
+      <div class="scroll-box">
+        <pre><code>{
+  "timestamp": "2025-06-10T10:33:00.458694",
+  "ip": "172.23.192.1",
+  "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)...",
+  "method": "POST",
+  "path": "/admin",
+  "username": "admin",
+  "password": "123456"
+}</code></pre>
+      </div>
+
+      <h2 class="side-heading">💻 Source Code</h2>
+      <div class="source-code">
+        <a
+          href="https://github.com/chandruthehacker/honeypot-trap-logger"
+          target="_blank"
+        >
+          <span class="github-link">honeypot-trap-logger</span>
+          <i class="bx bx-link-external"></i>
+        </a>
+      </div>
+
+      <h2 class="side-heading">👨‍💻 Author Info</h2>
+      <p>
+        Created by <strong>Chandraprakash C</strong> – BSc Computer Science |
+        Cybersecurity Enthusiast <br />
+        <a href="mailto:cyberchandru87@gmail.com">cyberchandru87@gmail.com</a> |
+        <a href="https://github.com/chandruthehacker" target="_blank">GitHub</a>
+        |
+        <a href="https://linkedin.com/in/chandraprakash87/" target="_blank"
+          >LinkedIn</a
+        >
+      </p>
+    </div>
+  </body>
+</html>

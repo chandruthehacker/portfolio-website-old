@@ -203,3 +203,218 @@ function showFormStatus(message, color) {
     statusText.style.display = "block";
   }
 }
+
+//for projects
+const projectsContainer = document.getElementById("projectsContainer");
+const leftArrow = document.getElementById("leftArrow");
+const rightArrow = document.getElementById("rightArrow");
+const paginationDotsContainer = document.getElementById("paginationDots");
+const projectBoxes = Array.from(
+  projectsContainer.querySelectorAll(".project-box")
+);
+const totalProjects = projectBoxes.length;
+
+// Configuration
+const scrollDelay = 2500;
+const desktopScrollCount = 1;
+
+// State variables
+let autoSwipeInterval;
+let isAutoSwiping = false;
+let resizeTimeout;
+
+// Detect mobile view based on CSS media query
+function isMobileView() {
+  return window.matchMedia("(max-width: 500px)").matches;
+}
+
+// Get the width of a single project box including its margin/gap
+function getProjectBoxWidth() {
+  const firstBox = projectBoxes[0];
+  if (!firstBox) return 0;
+
+  const boxStyle = window.getComputedStyle(firstBox);
+  const marginRight = parseFloat(boxStyle.marginRight);
+  const marginLeft = parseFloat(boxStyle.marginLeft);
+
+  return firstBox.offsetWidth + marginLeft + marginRight;
+}
+
+// Get the current active project index based on scroll position
+function getCurrentIndex() {
+  const scrollLeft = projectsContainer.scrollLeft;
+  const itemWidth = getProjectBoxWidth(); // Use single item width for index calculation
+  return Math.round(scrollLeft / itemWidth);
+}
+
+// Scroll to a specific project index
+function scrollToProject(index) {
+  let scrollAmount;
+  if (isMobileView()) {
+    scrollAmount = index * getProjectBoxWidth();
+  } else {
+    const boxWidth = getProjectBoxWidth();
+    const maxScrollLeft =
+      projectsContainer.scrollWidth - projectsContainer.clientWidth;
+    scrollAmount = Math.min(index * boxWidth, maxScrollLeft);
+  }
+
+  projectsContainer.scrollTo({
+    left: scrollAmount,
+    behavior: "smooth",
+  });
+}
+
+// --- Auto-swipe Functionality (Mobile Only) ---
+
+function startAutoSwipe() {
+  if (!isMobileView() || isAutoSwiping) return;
+
+  isAutoSwiping = true;
+  autoSwipeInterval = setInterval(() => {
+    const currentIndex = getCurrentIndex();
+    const nextIndex = (currentIndex + 1) % totalProjects;
+    scrollToProject(nextIndex);
+  }, scrollDelay);
+}
+
+function stopAutoSwipe() {
+  clearInterval(autoSwipeInterval);
+  isAutoSwiping = false;
+}
+
+// --- Arrow Navigation (Desktop Only) ---
+
+function scrollProjects(direction) {
+  if (isMobileView()) return;
+
+  stopAutoSwipe();
+  const currentScrollLeft = projectsContainer.scrollLeft;
+  const projectBoxWidth = getProjectBoxWidth();
+  let targetScrollLeft;
+
+  if (direction === 1) {
+    // Scroll right
+    targetScrollLeft = currentScrollLeft + projectBoxWidth * desktopScrollCount;
+    targetScrollLeft = Math.min(
+      targetScrollLeft,
+      projectsContainer.scrollWidth - projectsContainer.clientWidth
+    );
+  } else {
+    // Scroll left
+    targetScrollLeft = currentScrollLeft - projectBoxWidth * desktopScrollCount;
+    targetScrollLeft = Math.max(targetScrollLeft, 0);
+  }
+
+  projectsContainer.scrollTo({
+    left: targetScrollLeft,
+    behavior: "smooth",
+  });
+}
+
+// Update arrow visibility based on scroll position (Desktop)
+function updateArrows() {
+  if (isMobileView()) {
+    leftArrow.style.display = "none";
+    rightArrow.style.display = "none";
+    return;
+  }
+
+  leftArrow.style.display = "block";
+  rightArrow.style.display = "block";
+
+  const scrollLeft = projectsContainer.scrollLeft;
+  const maxScrollLeft =
+    projectsContainer.scrollWidth - projectsContainer.clientWidth;
+
+  leftArrow.disabled = scrollLeft <= 0;
+  rightArrow.disabled = scrollLeft >= maxScrollLeft - 1;
+}
+
+function createPaginationDots() {
+  paginationDotsContainer.innerHTML = "";
+
+  if (!isMobileView()) {
+    paginationDotsContainer.style.display = "none";
+    return;
+  }
+
+  paginationDotsContainer.style.display = "flex";
+
+  projectBoxes.forEach((_, index) => {
+    const dot = document.createElement("span");
+    dot.classList.add("dot");
+    dot.addEventListener("click", () => {
+      stopAutoSwipe();
+      scrollToProject(index);
+      if (isMobileView()) {
+        setTimeout(startAutoSwipe, scrollDelay);
+      }
+    });
+    paginationDotsContainer.appendChild(dot);
+  });
+}
+
+function updateDots() {
+  if (!isMobileView()) return;
+
+  const dots = paginationDotsContainer.querySelectorAll(".dot");
+  const currentIndex = getCurrentIndex();
+
+  dots.forEach((dot, index) => {
+    dot.classList.toggle("active", index === currentIndex);
+  });
+}
+
+// Listen for scroll events on the projects container
+projectsContainer.addEventListener("scroll", () => {
+  updateArrows();
+  updateDots();
+});
+
+projectsContainer.addEventListener("mouseenter", stopAutoSwipe);
+projectsContainer.addEventListener("mouseleave", () => {
+  if (isMobileView()) {
+    stopAutoSwipe();
+  } else {
+  }
+});
+
+// Touch interaction for mobile to stop/start auto-swipe
+projectsContainer.addEventListener("touchstart", stopAutoSwipe);
+projectsContainer.addEventListener("touchend", () => {
+  if (isMobileView()) {
+    // Resume auto-swipe after a short delay on touch end
+    setTimeout(startAutoSwipe, scrollDelay);
+  }
+});
+
+// Initialize on page load
+window.addEventListener("load", () => {
+  createPaginationDots();
+  updateArrows();
+  updateDots();
+  if (isMobileView()) {
+    startAutoSwipe();
+  }
+});
+
+// Re-initialize on window resize to handle view changes
+window.addEventListener("resize", () => {
+  clearTimeout(resizeTimeout);
+  resizeTimeout = setTimeout(() => {
+    createPaginationDots();
+    updateArrows();
+    updateDots();
+
+    if (isMobileView()) {
+      stopAutoSwipe();
+      startAutoSwipe();
+    } else {
+      stopAutoSwipe();
+      projectsContainer.scrollLeft = 0;
+    }
+  }, 100);
+});
+
+window.scrollProjects = scrollProjects;

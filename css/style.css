@@ -413,6 +413,7 @@ span{
   color: var(--text-color);
   flex-grow: 1;
   margin-bottom: 3rem;
+  text-align: justify;
 }
 
 .project-box .btn {
@@ -661,6 +662,45 @@ span{
 }
 
 
+@media(min-width:501px){
+  .projects-container {
+    overflow-x: auto;
+    padding-bottom: 1rem;
+    justify-content: flex-start;
+  }
+
+  .projects-container:has(.project-box:nth-last-child(3):first-child) {
+      justify-content: center;
+    }
+    .projects-container:has(.project-box:nth-last-child(2):first-child) {
+    justify-content: center;
+  }
+  .projects-container:has(.project-box:nth-last-child(1):first-child) {
+    justify-content: center;
+  }
+
+
+
+  .projects-container::-webkit-scrollbar {
+    height: 7px;
+  }
+  .projects-container::-webkit-scrollbar-track {
+    background: var(--bg-color);
+    border-radius: 10px;
+  }
+  .projects-container::-webkit-scrollbar-thumb {
+    background: var(--text-color);
+    border-radius: 10px;
+  }
+  .projects-container::-webkit-scrollbar-thumb:hover {
+    background: var(--main-color);
+    cursor: pointer;
+  }
+
+  .pagination-dots {
+    display: none;
+  }
+}
 
 @media (orientation: portrait) and (max-height: 725px) {
     .about{
@@ -866,45 +906,7 @@ span{
     }
 }
 
-@media(min-width:501px){
-  .projects-container {
-    overflow-x: auto;
-    padding-bottom: 1rem;
-    justify-content: flex-start;
-  }
 
-  .projects-container:has(.project-box:nth-last-child(3):first-child) {
-      justify-content: center;
-    }
-    .projects-container:has(.project-box:nth-last-child(2):first-child) {
-    justify-content: center;
-  }
-  .projects-container:has(.project-box:nth-last-child(1):first-child) {
-    justify-content: center;
-  }
-
-
-
-  .projects-container::-webkit-scrollbar {
-    height: 7px;
-  }
-  .projects-container::-webkit-scrollbar-track {
-    background: var(--bg-color);
-    border-radius: 10px;
-  }
-  .projects-container::-webkit-scrollbar-thumb {
-    background: var(--text-color);
-    border-radius: 10px;
-  }
-  .projects-container::-webkit-scrollbar-thumb:hover {
-    background: var(--main-color);
-    cursor: pointer;
-  }
-
-  .pagination-dots {
-    display: none;
-  }
-}
 
 @media (max-width: 500px) {
     .projects{

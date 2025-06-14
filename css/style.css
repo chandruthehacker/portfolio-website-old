@@ -8,6 +8,10 @@
     border: none;
     outline: none;
     scroll-behavior: smooth;
+      user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 
 :root{
@@ -359,10 +363,7 @@ span{
   overflow-x: hidden;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
-  user-select: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
+
   margin-bottom: 2rem;
   padding-left: 1rem;
   padding-right: 1rem;

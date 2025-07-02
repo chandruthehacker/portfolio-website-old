@@ -215,7 +215,7 @@ const projectBoxes = Array.from(
 const totalProjects = projectBoxes.length;
 
 // Configuration
-const scrollDelay = 2500;
+const scrollDelay = 2000;
 const desktopScrollCount = 1;
 
 // State variables

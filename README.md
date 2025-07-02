@@ -6,6 +6,11 @@
 
 ---
 
+### 🔗 New Portfolio: [Live Website](https://chandruthehacker.github.io)
+### 🔗 Old Portfolio: [Live Website](https://chandruthehacker.github.io/portfolio-website-old)
+
+---
+
 ## 👋 Hello! I'm Chandraprakash
 
 A **self-driven cybersecurity enthusiast** and **Computer Science undergrad (2nd Year)** on a mission to secure the digital world. With a strong foundation in **network security, log analysis, penetration testing**, and a passion for automation, I'm constantly building tools and exploring how to turn security knowledge into real-world solutions.

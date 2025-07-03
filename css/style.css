@@ -71,7 +71,7 @@ section{
     font-size: 1.7rem;
     color: var(--text-color);
     margin-left: 4rem;
-    transition: .3s;
+    transition: .3s ease;
 }
 .navbar a:hover{
     color: var(--main-color);
@@ -118,6 +118,8 @@ section{
 .home-image img {
     width: 30vw;
     animation: floatImage 4s ease-in-out infinite;
+    border-radius: 50%;
+    box-shadow: 0 0 1.5rem var(--main-color);
 }
 
 @keyframes floatImage {
@@ -159,7 +161,7 @@ span{
     font-size: 2rem;
     color: var(--main-color);
     margin: 3rem .5rem 3rem 0;
-    transition: .5 ease;
+    transition: .5s ease;
 }
 
 .social-media a:hover{
@@ -235,6 +237,8 @@ span{
 
 .about-image img{
     width: 20vw;
+    border-radius: 50%;
+    box-shadow: 0 0 1rem var(--main-color);
 }
 
 .heading{
@@ -284,7 +288,7 @@ span{
     margin: 1.5rem;
     text-align: left;
     border: none;
-    transition: transform 0.3s, background-color 0.3s;
+    transition: transform 0.5s, background-color 0.5s;
     color: #fff;
 }
 
@@ -874,7 +878,7 @@ span{
     }
     .home-image img{
         width: 70vw;
-        margin-top: 0;
+        margin-top: 2rem;
     }
 
     .about{
@@ -986,7 +990,7 @@ span{
 }
 @media(max-width:350px){
     .home-image img{
-        width: 90vw;
+        width: 80vw;
     }
 }
 

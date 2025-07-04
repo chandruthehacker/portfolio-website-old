@@ -63,7 +63,12 @@ section{
     font-size: 2.5rem;
     color: var(--main-color);
     font-weight: 600;
-    cursor: default;
+    cursor: pointer;
+    transition: .5s ease-in-out;
+}
+
+.logo:hover{
+    color: var(--text-color);
 }
 
 
@@ -280,7 +285,7 @@ span{
 
 .skills-container .skill-box{
     max-width: 400px;
-    min-width:350px;
+    min-width:330px;
     flex: 1 1 30rem;
     background: var(--second-bg-color);
     padding: 3rem 2rem 4rem;
@@ -385,12 +390,12 @@ span{
   margin-bottom: 2rem;
   border-radius: 1.8rem;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  transition: transform .5s ease, box-shadow .5s ease;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   box-sizing: border-box;
   gap: 1rem;
+  transition: .5s ease-in-out;
 }
 
 .project-box:hover {
@@ -576,14 +581,6 @@ span{
     display: none;
 }
 
-.certificates .show-more-container{
-    width: 100%;
-    text-align: center;
-}
-
-#mob-show-more-cert{
-    display: none;
-}
 
 .contact
 {
@@ -731,11 +728,7 @@ span{
 
 @media (orientation: portrait){
 
-    .social-media{
-        display: block;
-        justify-content: none;
-        max-width: auto;
-    }
+
     .home{
         display: flex;
         flex-direction: column;
@@ -992,6 +985,14 @@ span{
     .home-image img{
         width: 80vw;
     }
+
+    .home h3{
+        font-size: 2rem;
+    }
+
+    .home h1{
+        font-size: 3.4rem;
+    }
 }
 
 @media(max-width:290px){
@@ -1001,4 +1002,9 @@ span{
   .projects .btn{
     font-size: 1rem;
   }
+.social-media{
+    display: block;
+    justify-content: none;
+    max-width: auto;
+    }
 }

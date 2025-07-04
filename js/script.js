@@ -109,19 +109,6 @@ document.addEventListener("DOMContentLoaded", () => {
     loop: true,
   });
 
-  // Hide "Show More" buttons if all items are visible
-  checkVisibility(
-    ".projects-container",
-    ".project-box",
-    "#lap-show-more",
-    "#mob-show-more"
-  );
-  checkVisibility(
-    ".certificates-container",
-    ".certificate-box",
-    "#lap-show-more-cert",
-    "#mob-show-more-cert"
-  );
 });
 
 function checkVisibility(containerSelector, itemSelector, lapBtnId, mobBtnId) {
@@ -140,32 +127,6 @@ function checkVisibility(containerSelector, itemSelector, lapBtnId, mobBtnId) {
   }
 }
 
-// =================== Show More Buttons ===================
-// Mobile Projects
-setupShowMore("#mob-show-more", ".mob-hidden", 3);
-// Laptop Projects
-setupShowMore("#lap-show-more", ".lap-hidden", 4);
-// Mobile Certificates
-setupShowMore("#mob-show-more-cert", ".mob-hidden-cert", 3);
-// Laptop Certificates
-setupShowMore("#lap-show-more-cert", ".lap-hidden-cert", 4);
-
-function setupShowMore(buttonId, itemsSelector, countPerClick) {
-  const button = document.querySelector(buttonId);
-  const items = document.querySelectorAll(itemsSelector);
-  let currentIndex = 0;
-
-  if (!button) return;
-
-  button.addEventListener("click", () => {
-    for (let i = currentIndex; i < currentIndex + countPerClick; i++) {
-      if (items[i]) items[i].style.display = "block";
-    }
-
-    currentIndex += countPerClick;
-    if (currentIndex >= items.length) button.style.display = "none";
-  });
-}
 
 // =================== Contact Form ===================
 const form = document.querySelector("form");
